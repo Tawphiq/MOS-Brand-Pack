@@ -5,8 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
 
-import dataCenterImg from "@assets/images/data-center.jpg";
-import cybersecurityImg from "@assets/images/cybersecurity.jpg";
+import serviceMiningImg from "@/assets/images/service-mining.png";
+import serviceEpcImg from "@/assets/images/service-epc.png";
+import serviceMiningTechImg from "@/assets/images/service-mining-tech.png";
+import serviceItImg from "@/assets/images/service-it.png";
+import serviceOilGasImg from "@/assets/images/service-oil-gas.png";
+import serviceEsgImg from "@/assets/images/service-esg.png";
 
 const services = [
   {
@@ -21,7 +25,7 @@ const services = [
       "Manpower supply and shift optimization",
       "Safety & compliance assurance"
     ],
-    image: dataCenterImg,
+    image: serviceMiningImg,
     gradient: "from-blue-600 to-blue-700"
   },
   {
@@ -37,7 +41,7 @@ const services = [
       "Project controls (cost, schedule, risk, quality)",
       "Commissioning & handover"
     ],
-    image: cybersecurityImg,
+    image: serviceEpcImg,
     gradient: "from-emerald-600 to-emerald-700"
   },
   {
@@ -54,7 +58,7 @@ const services = [
       "Environmental monitoring technologies",
       "Operations dashboards & data analytics platforms"
     ],
-    image: dataCenterImg,
+    image: serviceMiningTechImg,
     gradient: "from-violet-600 to-violet-700"
   },
   {
@@ -71,7 +75,7 @@ const services = [
       "Network architecture and infrastructure audits",
       "Business continuity & disaster recovery systems"
     ],
-    image: cybersecurityImg,
+    image: serviceItImg,
     gradient: "from-amber-600 to-amber-700"
   },
   {
@@ -86,7 +90,7 @@ const services = [
       "HSSE compliance audits",
       "Remote monitoring & analytics"
     ],
-    image: dataCenterImg,
+    image: serviceOilGasImg,
     gradient: "from-rose-600 to-rose-700"
   },
   {
@@ -101,7 +105,7 @@ const services = [
       "Social performance and stakeholder engagement",
       "ESG reporting (GRI, IFC, Ghana EPA)"
     ],
-    image: cybersecurityImg,
+    image: serviceEsgImg,
     gradient: "from-teal-600 to-teal-700"
   }
 ];
