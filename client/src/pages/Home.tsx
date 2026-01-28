@@ -21,18 +21,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-import heroImg from "@assets/images/hero-mining.jpg";
-import dataCenterImg from "@assets/images/data-center.jpg";
-import cybersecurityImg from "@assets/images/cybersecurity.jpg";
-import partnerRamjack from "@assets/images/partner-ramjack.png";
-import partnerWestcon from "@assets/images/partner-westcon.png";
-import partnerCrowdstrike from "@assets/images/partner-crowdstrike.png";
-import serviceMiningImg from "@/assets/images/service-mining.png";
-import serviceEpcImg from "@/assets/images/service-epc.png";
-import serviceMiningTechImg from "@/assets/images/service-mining-tech.png";
-import serviceItImg from "@/assets/images/service-it.png";
-import serviceOilGasImg from "@/assets/images/service-oil-gas.png";
-import serviceEsgImg from "@/assets/images/service-esg.png";
+import heroImg from "@/assets/images/hero-mining-operations.jpg";
+import dataCenterImg from "@/assets/images/datacenter-modern.jpg";
+import cybersecurityImg from "@/assets/images/cybersecurity-network.jpg";
+import partnerRamjack from "@/assets/images/partner-ramjack.png";
+import partnerWestcon from "@/assets/images/partner-westcon.png";
+import partnerCrowdstrike from "@/assets/images/partner-crowdstrike.png";
+import serviceMiningImg from "@/assets/images/hero-mining-operations.jpg";
+import serviceEpcImg from "@/assets/images/epc-construction.jpg";
+import serviceMiningTechImg from "@/assets/images/datacenter-modern.jpg";
+import serviceItImg from "@/assets/images/cybersecurity-network.jpg";
+import serviceOilGasImg from "@/assets/images/oil-gas-operations.jpg";
+import serviceEsgImg from "@/assets/images/esg-sustainability.jpg";
 
 export default function Home() {
   const services = [

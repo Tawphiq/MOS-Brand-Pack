@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, Mail, GraduationCap, Users, Rocket, Heart, Sparkles, ArrowRight } from "lucide-react";
-import careersTeamImg from "@/assets/images/careers-team.png";
+import careersTeamImg from "@/assets/images/careers-engineering-team.jpg";
 
 export default function Careers() {
   const benefits = [

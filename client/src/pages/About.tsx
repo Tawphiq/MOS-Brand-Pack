@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import { Target, ShieldCheck, Zap, Users, Building2, Award, Sparkles, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
-import partnerRamjack from "@assets/images/partner-ramjack.png";
-import partnerWestcon from "@assets/images/partner-westcon.png";
-import partnerCrowdstrike from "@assets/images/partner-crowdstrike.png";
-import team1 from "@assets/images/team1.jpg";
-import team2 from "@assets/images/team2.jpg";
-import team3 from "@assets/images/team3.jpg";
-import team4 from "@assets/images/team4.jpg";
-import team5 from "@assets/images/team5.jpg";
-import team6 from "@assets/images/team6.jpg";
-import aboutCorporateImg from "@/assets/images/about-corporate.png";
+import partnerRamjack from "@/assets/images/partner-ramjack.png";
+import partnerWestcon from "@/assets/images/partner-westcon.png";
+import partnerCrowdstrike from "@/assets/images/partner-crowdstrike.png";
+import team1 from "@/assets/images/team1.jpg";
+import team2 from "@/assets/images/team2.jpg";
+import team3 from "@/assets/images/team3.jpg";
+import team4 from "@/assets/images/team4.jpg";
+import team5 from "@/assets/images/team5.jpg";
+import team6 from "@/assets/images/team6.jpg";
+import aboutCorporateImg from "@/assets/images/about-team-meeting.jpg";
 
 export default function About() {
   const values = [
