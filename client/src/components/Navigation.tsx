@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu } from "lucide-react";
+import { Menu, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -18,65 +18,109 @@ const NAV_ITEMS = [
 export function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container-padding flex h-20 items-center justify-between">
+    <header 
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled 
+          ? "bg-white/95 backdrop-blur-lg shadow-sm border-b border-gray-100" 
+          : "bg-white/80 backdrop-blur-md border-b border-transparent"
+      }`}
+    >
+      <div className="container-padding flex h-20 items-center justify-between gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3" data-testid="link-logo">
-          <img src={logoImg} alt="MOS Logo" className="h-12 w-auto" />
+        <Link href="/" className="flex items-center gap-3 group" data-testid="link-logo">
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
+            <img src={logoImg} alt="MOS Logo" className="relative h-11 w-auto" />
+          </div>
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="tracking-tight text-lg font-bold text-primary">MINING OPTS</span>
-            <span className="text-[10px] text-muted-foreground font-normal tracking-widest">SOLUTIONS LTD</span>
+            <span className="tracking-tight text-lg font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
+              MINING OPTS
+            </span>
+            <span className="text-[10px] text-muted-foreground font-medium tracking-[0.2em] uppercase">
+              Solutions Ltd
+            </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-1 flex-wrap">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-semibold transition-colors hover:text-accent ${
-                location === item.href ? "text-accent border-b-2 border-accent pb-1" : "text-foreground/70"
+              className={`relative px-4 py-2 text-sm font-semibold transition-colors rounded-lg ${
+                location === item.href 
+                  ? "text-primary bg-primary/5" 
+                  : "text-foreground/70 hover:text-primary"
               }`}
               data-testid={`nav-${item.href.replace('/', '') || 'home'}`}
             >
               {item.label}
+              {location === item.href && (
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" />
+              )}
             </Link>
           ))}
-          <Link href="/contact">
-            <Button className="bg-accent hover:bg-accent/90 text-white font-semibold" data-testid="button-get-quote">
+          <Link href="/contact" className="ml-4">
+            <Button 
+              className="bg-accent text-white font-semibold" 
+              data-testid="button-get-quote"
+            >
               Get a Quote
+              <ChevronRight className="ml-1 w-4 h-4" />
             </Button>
           </Link>
         </nav>
 
         {/* Mobile Nav */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col gap-6 mt-10">
+            <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white">
+              <div className="flex items-center gap-3 mb-8 mt-4">
+                <img src={logoImg} alt="MOS Logo" className="h-10 w-auto" />
+                <div className="flex flex-col leading-none">
+                  <span className="font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
+                  <span className="text-[9px] text-muted-foreground tracking-widest">SOLUTIONS LTD</span>
+                </div>
+              </div>
+              <nav className="flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`text-lg font-medium transition-colors hover:text-accent ${
-                      location === item.href ? "text-accent" : "text-foreground"
+                    className={`flex items-center justify-between p-4 rounded-xl text-base font-medium transition-all ${
+                      location === item.href 
+                        ? "text-primary bg-primary/5 border-l-4 border-accent" 
+                        : "text-foreground hover:bg-gray-50"
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
+                    <ChevronRight className={`w-4 h-4 ${location === item.href ? "text-accent" : "text-gray-300"}`} />
                   </Link>
                 ))}
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-accent hover:bg-accent/90">Get a Quote</Button>
+                <Link href="/contact" onClick={() => setIsOpen(false)} className="mt-4">
+                  <Button className="w-full bg-accent" data-testid="button-mobile-get-quote">
+                    Get a Quote
+                    <ChevronRight className="ml-1 w-4 h-4" />
+                  </Button>
                 </Link>
               </nav>
             </SheetContent>

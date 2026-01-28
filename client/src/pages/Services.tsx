@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Server, Shield, Cloud, Cpu, Settings, Wrench, ArrowRight } from "lucide-react";
+import { ChevronRight, Server, Shield, Cloud, Cpu, Settings, Wrench, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -22,7 +22,8 @@ const services = [
       "Data centre cybersecurity and continuous monitoring",
       "Business continuity and disaster recovery solutions"
     ],
-    image: dataCenterImg
+    image: dataCenterImg,
+    gradient: "from-blue-600 to-blue-700"
   },
   {
     id: "cybersecurity",
@@ -37,7 +38,8 @@ const services = [
       "Security architecture for data centres and critical systems",
       "Zero-trust security models"
     ],
-    image: cybersecurityImg
+    image: cybersecurityImg,
+    gradient: "from-emerald-600 to-emerald-700"
   },
   {
     id: "cloud",
@@ -52,7 +54,8 @@ const services = [
       "Training, support, and managed services",
       "Hybrid cloud implementations"
     ],
-    image: dataCenterImg
+    image: dataCenterImg,
+    gradient: "from-violet-600 to-violet-700"
   },
   {
     id: "optimisation",
@@ -67,7 +70,8 @@ const services = [
       "Workflow automation",
       "Performance monitoring solutions"
     ],
-    image: cybersecurityImg
+    image: cybersecurityImg,
+    gradient: "from-amber-600 to-amber-700"
   },
   {
     id: "professional",
@@ -82,7 +86,8 @@ const services = [
       "Training and knowledge transfer",
       "Managed services and support"
     ],
-    image: dataCenterImg
+    image: dataCenterImg,
+    gradient: "from-rose-600 to-rose-700"
   }
 ];
 
@@ -90,15 +95,27 @@ export default function Services() {
   const [activeService, setActiveService] = useState(services[0]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Header */}
-      <div className="bg-primary text-white py-24 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-gray-900"></div>
+      <div className="bg-gradient-to-br from-primary via-primary to-gray-900 text-white py-28 text-center relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+        </div>
         <div className="container-padding relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+          >
+            <Sparkles className="w-4 h-4 text-accent" />
+            <span className="text-sm font-medium text-white/90">What We Do</span>
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-4 text-white" 
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Our Services
@@ -106,7 +123,7 @@ export default function Services() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.2 }}
             className="text-xl text-gray-300 max-w-2xl mx-auto"
           >
             Enterprise-grade technology solutions for mission-critical environments
@@ -114,21 +131,21 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="container-padding py-16">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="container-padding py-20">
+        <div className="flex flex-col lg:flex-row gap-10">
           {/* Sidebar Navigation */}
           <div className="lg:w-1/3">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden sticky top-24 border">
-              <div className="p-5 bg-primary text-white">
-                <h3 className="font-bold text-lg">Our Solutions</h3>
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden sticky top-24 border border-gray-100">
+              <div className="p-6 bg-gradient-to-r from-primary to-primary/90 text-white">
+                <h3 className="font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>Our Solutions</h3>
                 <p className="text-sm text-gray-300 mt-1">Select a service to learn more</p>
               </div>
-              <div className="divide-y divide-gray-100">
+              <div className="p-2">
                 {services.map((service) => (
                   <button
                     key={service.id}
                     onClick={() => setActiveService(service)}
-                    className={`w-full flex items-center justify-between p-4 text-left transition-all ${
+                    className={`w-full flex items-center justify-between p-4 rounded-xl text-left transition-all mb-1 ${
                       activeService.id === service.id 
                         ? "bg-primary/5 border-l-4 border-primary" 
                         : "hover:bg-gray-50 border-l-4 border-transparent"
@@ -136,9 +153,13 @@ export default function Services() {
                     data-testid={`button-service-${service.id}`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className={activeService.id === service.id ? "text-primary" : "text-gray-400"}>
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                        activeService.id === service.id 
+                          ? `bg-gradient-to-br ${service.gradient} text-white shadow-lg` 
+                          : "bg-gray-100 text-gray-500"
+                      }`}>
                         {service.icon}
-                      </span>
+                      </div>
                       <span className={`font-medium text-sm ${activeService.id === service.id ? "text-primary" : "text-gray-700"}`}>
                         {service.title}
                       </span>
@@ -160,49 +181,59 @@ export default function Services() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="shadow-lg border-0 overflow-hidden">
-                  <div className="h-48 md:h-64 overflow-hidden">
+                <Card className="shadow-2xl border-0 overflow-hidden">
+                  <div className="h-56 md:h-72 overflow-hidden relative">
                     <img 
                       src={activeService.image} 
                       alt={activeService.title}
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-3 bg-gradient-to-br ${activeService.gradient} rounded-xl text-white shadow-lg`}>
+                          {activeService.icon}
+                        </div>
+                        <h2 className="text-xl md:text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
+                          {activeService.title}
+                        </h2>
+                      </div>
+                    </div>
                   </div>
                   <CardContent className="p-8">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 bg-primary rounded-lg text-white">
-                        {activeService.icon}
-                      </div>
-                      <h2 className="text-2xl md:text-3xl font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
-                        {activeService.title}
-                      </h2>
-                    </div>
-                    
                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                       {activeService.content}
                     </p>
 
-                    <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2" style={{ fontFamily: 'var(--font-heading)' }}>
                       <Wrench className="w-5 h-5 text-accent" />
                       Key Capabilities
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
                       {activeService.details.map((detail, index) => (
-                        <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                          <ChevronRight className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <motion.div 
+                          key={index} 
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100"
+                        >
+                          <div className="w-6 h-6 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <CheckCircle2 className="w-4 h-4 text-secondary" />
+                          </div>
                           <span className="text-foreground/80 text-sm">{detail}</span>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
 
-                    <div className="p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl border border-primary/10">
+                    <div className="p-6 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 rounded-2xl border border-primary/10">
                       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                         <div>
-                          <h4 className="font-bold text-primary text-lg">Interested in this service?</h4>
+                          <h4 className="font-bold text-primary text-lg" style={{ fontFamily: 'var(--font-heading)' }}>Interested in this service?</h4>
                           <p className="text-sm text-muted-foreground">Contact our team for a detailed consultation.</p>
                         </div>
                         <Link href="/contact">
-                          <Button className="bg-primary hover:bg-primary/90" data-testid="button-contact-service">
+                          <Button className="bg-accent" data-testid="button-contact-service">
                             Get in Touch
                             <ArrowRight className="ml-2 w-4 h-4" />
                           </Button>

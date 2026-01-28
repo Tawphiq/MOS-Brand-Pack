@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, ShieldCheck, Zap, Users, Building2, Award } from "lucide-react";
+import { Target, ShieldCheck, Zap, Users, Building2, Award, Sparkles, Globe } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 import partnerRamjack from "@assets/images/partner-ramjack.png";
@@ -14,10 +14,10 @@ import team6 from "@assets/images/team6.jpg";
 
 export default function About() {
   const values = [
-    { icon: <ShieldCheck className="w-6 h-6" />, title: "Security", desc: "Protecting critical assets through enterprise-grade security solutions." },
-    { icon: <Zap className="w-6 h-6" />, title: "Resilience", desc: "Building systems that ensure high availability and business continuity." },
-    { icon: <Target className="w-6 h-6" />, title: "Performance", desc: "Optimising operations for maximum efficiency and productivity." },
-    { icon: <Award className="w-6 h-6" />, title: "Excellence", desc: "Delivering quality solutions with global best practices." },
+    { icon: <ShieldCheck className="w-6 h-6" />, title: "Security", desc: "Protecting critical assets through enterprise-grade security solutions.", gradient: "from-blue-600 to-blue-700" },
+    { icon: <Zap className="w-6 h-6" />, title: "Resilience", desc: "Building systems that ensure high availability and business continuity.", gradient: "from-amber-600 to-amber-700" },
+    { icon: <Target className="w-6 h-6" />, title: "Performance", desc: "Optimising operations for maximum efficiency and productivity.", gradient: "from-emerald-600 to-emerald-700" },
+    { icon: <Award className="w-6 h-6" />, title: "Excellence", desc: "Delivering quality solutions with global best practices.", gradient: "from-violet-600 to-violet-700" },
   ];
 
   const team = [
@@ -32,13 +32,25 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <div className="bg-primary py-24 text-center text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-gray-900"></div>
+      <div className="bg-gradient-to-br from-primary via-primary to-gray-900 py-28 text-center text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+        </div>
         <div className="container-padding relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+          >
+            <Sparkles className="w-4 h-4 text-accent" />
+            <span className="text-sm font-medium text-white/90">Who We Are</span>
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-4 text-white" 
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             About MOS
@@ -46,7 +58,7 @@ export default function About() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.2 }}
             className="text-xl text-gray-300 max-w-2xl mx-auto"
           >
             Your trusted technology partner for digital transformation in West Africa
@@ -58,14 +70,28 @@ export default function About() {
       <section className="section-padding bg-white">
         <div className="container-padding">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-accent font-semibold tracking-wider uppercase text-sm">Corporate Overview</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mt-3" style={{ fontFamily: 'var(--font-heading)' }}>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-4">
+                <span className="w-8 h-0.5 bg-accent rounded-full" />
+                Corporate Overview
+                <span className="w-8 h-0.5 bg-accent rounded-full" />
+              </span>
+              <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
                 Who We Are
               </h2>
-            </div>
+            </motion.div>
             
-            <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6"
+            >
               <p className="text-lg">
                 Mining Optimisation Solutions Ltd (MOS) is a Ghana-based technology and engineering solutions company delivering advanced digital infrastructure, data centre, cybersecurity, and operational optimisation solutions across Ghana and West Africa.
               </p>
@@ -75,38 +101,53 @@ export default function About() {
               <p>
                 Our approach combines global best-in-class technologies with strong local execution capability to support organizations running high-availability systems and data-intensive operations.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container-padding">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-primary to-primary/90 text-white">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-6">
-                  <Target className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Our Mission</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  To deliver secure, resilient, and high-performance technology solutions that enable organizations to operate efficiently, protect critical assets, and scale sustainably.
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-0 shadow-xl bg-gradient-to-br from-primary to-primary/90 text-white overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
+                <CardContent className="p-8 relative">
+                  <div className="w-14 h-14 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center mb-6">
+                    <Target className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Our Mission</h3>
+                  <p className="text-gray-200 leading-relaxed">
+                    To deliver secure, resilient, and high-performance technology solutions that enable organizations to operate efficiently, protect critical assets, and scale sustainably.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
             
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-secondary to-secondary/90 text-white">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-6">
-                  <Building2 className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Our Vision</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  To become West Africa's trusted technology partner for data-driven optimisation, cybersecurity, and data-centre-enabled digital transformation.
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <Card className="h-full border-0 shadow-xl bg-gradient-to-br from-secondary to-secondary/90 text-white overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
+                <CardContent className="p-8 relative">
+                  <div className="w-14 h-14 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center mb-6">
+                    <Globe className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Our Vision</h3>
+                  <p className="text-gray-200 leading-relaxed">
+                    To become West Africa's trusted technology partner for data-driven optimisation, cybersecurity, and data-centre-enabled digital transformation.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -114,10 +155,19 @@ export default function About() {
       {/* Values */}
       <section className="section-padding bg-white">
         <div className="container-padding">
-          <div className="text-center mb-12">
-            <span className="text-accent font-semibold tracking-wider uppercase text-sm">Our Values</span>
-            <h2 className="text-3xl font-bold text-primary mt-3" style={{ fontFamily: 'var(--font-heading)' }}>What Drives Us</h2>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-4">
+              <span className="w-8 h-0.5 bg-accent rounded-full" />
+              Our Values
+              <span className="w-8 h-0.5 bg-accent rounded-full" />
+            </span>
+            <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>What Drives Us</h2>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {values.map((val, idx) => (
@@ -128,12 +178,12 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Card className="h-full border shadow-sm hover:shadow-md transition-shadow">
+                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
                   <CardContent className="p-6 text-center">
-                    <div className="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${val.gradient} text-white rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
                       {val.icon}
                     </div>
-                    <h3 className="font-bold text-lg mb-2 text-foreground">{val.title}</h3>
+                    <h3 className="font-bold text-lg mb-2 text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>{val.title}</h3>
                     <p className="text-sm text-muted-foreground">{val.desc}</p>
                   </CardContent>
                 </Card>
@@ -144,40 +194,49 @@ export default function About() {
       </section>
 
       {/* Strategic Partners */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container-padding">
-          <div className="text-center mb-12">
-            <span className="text-accent font-semibold tracking-wider uppercase text-sm">Strategic Partners</span>
-            <h2 className="text-3xl font-bold text-primary mt-3" style={{ fontFamily: 'var(--font-heading)' }}>Global Technology Partnerships</h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-4">
+              <span className="w-8 h-0.5 bg-accent rounded-full" />
+              Strategic Partners
+              <span className="w-8 h-0.5 bg-accent rounded-full" />
+            </span>
+            <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Global Technology Partnerships</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               We partner with industry leaders to deliver enterprise-grade solutions
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="border shadow-sm">
-              <CardContent className="p-8 text-center">
-                <img src={partnerRamjack} alt="Ramjack Technology Solutions" className="h-16 object-contain mx-auto mb-4" />
-                <h4 className="font-bold text-foreground mb-2">Ramjack Technology</h4>
-                <p className="text-sm text-muted-foreground">Systems integration and enterprise technology implementation</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="border shadow-sm">
-              <CardContent className="p-8 text-center">
-                <img src={partnerWestcon} alt="Westcon-Comstor" className="h-16 object-contain mx-auto mb-4" />
-                <h4 className="font-bold text-foreground mb-2">Westcon-Comstor</h4>
-                <p className="text-sm text-muted-foreground">Global technology distribution across 70+ countries</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="border shadow-sm">
-              <CardContent className="p-8 text-center">
-                <img src={partnerCrowdstrike} alt="CrowdStrike" className="h-16 object-contain mx-auto mb-4" />
-                <h4 className="font-bold text-foreground mb-2">CrowdStrike</h4>
-                <p className="text-sm text-muted-foreground">Advanced cloud-native cybersecurity platform</p>
-              </CardContent>
-            </Card>
+            {[
+              { img: partnerRamjack, alt: "Ramjack Technology Solutions", name: "Ramjack Technology", desc: "Systems integration and enterprise technology implementation" },
+              { img: partnerWestcon, alt: "Westcon-Comstor", name: "Westcon-Comstor", desc: "Global technology distribution across 70+ countries" },
+              { img: partnerCrowdstrike, alt: "CrowdStrike", name: "CrowdStrike", desc: "Advanced cloud-native cybersecurity platform" }
+            ].map((partner, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                  <CardContent className="p-8 text-center">
+                    <div className="h-20 flex items-center justify-center mb-4">
+                      <img src={partner.img} alt={partner.alt} className="max-h-16 object-contain" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{partner.name}</h4>
+                    <p className="text-sm text-muted-foreground">{partner.desc}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -185,10 +244,19 @@ export default function About() {
       {/* Team */}
       <section className="section-padding bg-white">
         <div className="container-padding">
-          <div className="text-center mb-12">
-            <span className="text-accent font-semibold tracking-wider uppercase text-sm">Our People</span>
-            <h2 className="text-3xl font-bold text-primary mt-3" style={{ fontFamily: 'var(--font-heading)' }}>Management & Technical Leadership</h2>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-4">
+              <span className="w-8 h-0.5 bg-accent rounded-full" />
+              Our People
+              <span className="w-8 h-0.5 bg-accent rounded-full" />
+            </span>
+            <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Management & Technical Leadership</h2>
+          </motion.div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {team.map((member, idx) => (
@@ -198,12 +266,13 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="text-center"
+                className="text-center group"
               >
-                <div className="aspect-square rounded-xl overflow-hidden mb-3 shadow-md">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                <div className="aspect-square rounded-2xl overflow-hidden mb-4 shadow-lg group-hover:shadow-xl transition-all relative">
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h4 className="font-semibold text-sm text-foreground">{member.name}</h4>
+                <h4 className="font-semibold text-sm text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>{member.name}</h4>
                 <p className="text-xs text-muted-foreground">{member.role}</p>
               </motion.div>
             ))}
@@ -212,22 +281,23 @@ export default function About() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container-padding text-center">
-          <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Get in Touch</h3>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-gray-300">
-            <div>
-              <p className="font-medium text-white">Address</p>
-              <p className="text-sm">A80 Legon Bypass, Papao, Haatso, Accra, Ghana</p>
-            </div>
-            <div>
-              <p className="font-medium text-white">Email</p>
-              <p className="text-sm">info@miningopts.com</p>
-            </div>
-            <div>
-              <p className="font-medium text-white">Phone</p>
-              <p className="text-sm">+233 59973 8900</p>
-            </div>
+      <section className="py-20 bg-gradient-to-br from-primary via-primary to-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container-padding text-center relative">
+          <h3 className="text-2xl font-bold mb-8" style={{ fontFamily: 'var(--font-heading)' }}>Get in Touch</h3>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            {[
+              { label: "Address", value: "A80 Legon Bypass, Papao, Haatso, Accra, Ghana" },
+              { label: "Email", value: "info@miningopts.com" },
+              { label: "Phone", value: "+233 59973 8900" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur border border-white/10 rounded-xl px-6 py-4">
+                <p className="font-medium text-white text-sm mb-1">{item.label}</p>
+                <p className="text-gray-300 text-sm">{item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
