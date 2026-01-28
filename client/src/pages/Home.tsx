@@ -27,6 +27,12 @@ import cybersecurityImg from "@assets/images/cybersecurity.jpg";
 import partnerRamjack from "@assets/images/partner-ramjack.png";
 import partnerWestcon from "@assets/images/partner-westcon.png";
 import partnerCrowdstrike from "@assets/images/partner-crowdstrike.png";
+import serviceMiningImg from "@/assets/images/service-mining.png";
+import serviceEpcImg from "@/assets/images/service-epc.png";
+import serviceMiningTechImg from "@/assets/images/service-mining-tech.png";
+import serviceItImg from "@/assets/images/service-it.png";
+import serviceOilGasImg from "@/assets/images/service-oil-gas.png";
+import serviceEsgImg from "@/assets/images/service-esg.png";
 
 export default function Home() {
   const services = [
@@ -34,37 +40,43 @@ export default function Home() {
       icon: <Factory className="w-7 h-7" />,
       title: "Contract Mining & Operations",
       desc: "Full contract mining execution including open-pit load & haul, fleet operations, and tailings management.",
-      gradient: "from-blue-600 to-blue-700"
+      gradient: "from-blue-600 to-blue-700",
+      image: serviceMiningImg
     },
     {
       icon: <Building2 className="w-7 h-7" />,
       title: "EPC Services",
       desc: "Engineering, Procurement & Construction from concept to commissioning for resource sector projects.",
-      gradient: "from-emerald-600 to-emerald-700"
+      gradient: "from-emerald-600 to-emerald-700",
+      image: serviceEpcImg
     },
     {
       icon: <Cpu className="w-7 h-7" />,
       title: "Mining Technologies",
       desc: "Fleet management systems, GPS guidance, drones, condition monitoring, and digital safety solutions.",
-      gradient: "from-violet-600 to-violet-700"
+      gradient: "from-violet-600 to-violet-700",
+      image: serviceMiningTechImg
     },
     {
       icon: <Server className="w-7 h-7" />,
       title: "IT & Enterprise Technology",
       desc: "Servers, networks, data centers, cybersecurity, and cloud solutions in partnership with global IT leaders.",
-      gradient: "from-amber-600 to-amber-700"
+      gradient: "from-amber-600 to-amber-700",
+      image: serviceItImg
     },
     {
       icon: <Droplets className="w-7 h-7" />,
       title: "Oil & Gas Support",
       desc: "Production optimization, pipeline integrity, shutdown planning, and HSSE compliance for oil & gas operations.",
-      gradient: "from-rose-600 to-rose-700"
+      gradient: "from-rose-600 to-rose-700",
+      image: serviceOilGasImg
     },
     {
       icon: <Leaf className="w-7 h-7" />,
       title: "Environmental & ESG",
       desc: "Environmental management systems, ESIA support, monitoring, and ESG reporting aligned with international standards.",
-      gradient: "from-teal-600 to-teal-700"
+      gradient: "from-teal-600 to-teal-700",
+      image: serviceEsgImg
     }
   ];
 
@@ -347,7 +359,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => (
               <motion.div 
                 key={i}
@@ -356,11 +368,19 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white group hover:-translate-y-1">
-                  <CardContent className="p-6">
-                    <div className={`bg-gradient-to-br ${service.gradient} w-14 h-14 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white group hover:-translate-y-1 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className={`absolute bottom-4 left-4 bg-gradient-to-br ${service.gradient} w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg`}>
                       {service.icon}
                     </div>
+                  </div>
+                  <CardContent className="p-6">
                     <h3 className="text-lg font-bold mb-3 text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.desc}</p>
                   </CardContent>
