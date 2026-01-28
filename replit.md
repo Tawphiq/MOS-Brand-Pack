@@ -83,19 +83,42 @@ shared/           # Shared code between frontend/backend
 
 ## Recent Changes (January 2026)
 
-### UI/UX Compliance Updates
-- Removed all custom hover/active states from Buttons (using built-in component behavior)
-- Added flex-wrap and gap classes to flex layouts per guidelines
-- Removed manual height classes from form inputs (using component defaults)
-- Added data-testid attributes to all interactive elements for testing
+### Company Profile Update
+- Updated all content to match official company profile document
+- Company tagline: "Performance. Precision. Sustainability."
+- Established: 2019 by multidisciplinary team of experienced engineers
+- Regional footprint: Ghana, Guinea, Côte d'Ivoire, Sierra Leone, Burkina Faso, Mali
 
-### Assets & Branding
-- Company logo and partner logos (Ramjack, Westcon-Comstor, CrowdStrike) integrated throughout
-- Team photos displayed on About and Careers pages
-- All images stored in `attached_assets/images/` using `@assets` alias
+### Core Service Lines (Updated)
+1. Contract Mining & Mine Operations
+2. EPC Services (Engineering, Procurement & Construction)
+3. Mining Technologies & Digital Systems
+4. IT Supplies & Enterprise Technology
+5. Oil & Gas Support Services
+6. Environmental & ESG Services
+
+### Values (Updated)
+- Performance: Measurable results for throughput, uptime, efficiency
+- Precision: Engineering accuracy, disciplined execution, data-driven decisions
+- Sustainability: Responsible operations protecting people and environment
+- Integrity: Ethical, transparent and accountable
+
+### Technology Partners
+- Cisco, Dell, HP, CrowdStrike (IT Hardware & Services)
+- Ramjack, Westcon-Comstor (Distribution & Solutions)
 
 ### Contact Information
-- Address: A80 Legon Bypass, Papao, Haatso, Accra, Ghana
-- Phone: +233 59973 8900
+- Location: Accra, Ghana, West Africa
+- Phone: +233 302 524 934
 - Email: info@miningopts.com
 - Careers: careers@miningopts.com
+
+### UI/UX Compliance Updates
+- Removed all custom hover/active states from Buttons
+- Added flex-wrap and gap classes to flex layouts
+- Added data-testid attributes to interactive elements
+
+### Assets & Branding
+- Company logo and partner logos integrated throughout
+- Team photos displayed on About and Careers pages
+- All images stored in `attached_assets/images/` using `@assets` alias

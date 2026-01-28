@@ -42,7 +42,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="text-xl text-gray-300 max-w-xl mx-auto"
           >
-            Get in touch with our team for enterprise technology solutions
+            Get in touch with our team for mining, EPC, and technology solutions
           </motion.p>
         </div>
       </div>
@@ -63,13 +63,13 @@ export default function Contact() {
               Get In Touch
             </h2>
             <p className="text-muted-foreground mb-10 leading-relaxed text-lg">
-              Whether you're looking to secure your data centre, implement cybersecurity solutions, or optimize your operations, our team is ready to help. Reach out to discuss how MOS can support your technology initiatives.
+              Whether you need contract mining services, EPC solutions, mining technology integration, or enterprise IT support, our team is ready to help. Reach out to discuss how MOS can support your resource sector projects.
             </p>
 
             <div className="space-y-6">
               {[
-                { icon: <MapPin className="w-5 h-5" />, title: "Address", value: "A80 Legon Bypass, Papao, Haatso\nAccra, Ghana" },
-                { icon: <Phone className="w-5 h-5" />, title: "Phone", value: "+233 59973 8900" },
+                { icon: <MapPin className="w-5 h-5" />, title: "Address", value: "Accra, Ghana\nWest Africa" },
+                { icon: <Phone className="w-5 h-5" />, title: "Phone", value: "+233 302 524 934" },
                 { icon: <Mail className="w-5 h-5" />, title: "Email", value: "info@miningopts.com" },
                 { icon: <Clock className="w-5 h-5" />, title: "Business Hours", value: "Monday - Friday: 8:00 AM - 5:00 PM" }
               ].map((item, i) => (

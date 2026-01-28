@@ -31,44 +31,56 @@ import partnerCrowdstrike from "@assets/images/partner-crowdstrike.png";
 export default function Home() {
   const services = [
     {
-      icon: <Server className="w-7 h-7" />,
-      title: "Data Centre Solutions",
-      desc: "End-to-end data centre design, assessment, deployment, and optimisation for enterprise operations.",
+      icon: <Factory className="w-7 h-7" />,
+      title: "Contract Mining & Operations",
+      desc: "Full contract mining execution including open-pit load & haul, fleet operations, and tailings management.",
       gradient: "from-blue-600 to-blue-700"
     },
     {
-      icon: <Shield className="w-7 h-7" />,
-      title: "Cybersecurity",
-      desc: "Advanced protection through endpoint detection, cloud security, and zero-trust security models.",
+      icon: <Building2 className="w-7 h-7" />,
+      title: "EPC Services",
+      desc: "Engineering, Procurement & Construction from concept to commissioning for resource sector projects.",
       gradient: "from-emerald-600 to-emerald-700"
     },
     {
-      icon: <Cloud className="w-7 h-7" />,
-      title: "Cloud Infrastructure",
-      desc: "Cloud-ready infrastructure solutions with secure networking and connectivity.",
+      icon: <Cpu className="w-7 h-7" />,
+      title: "Mining Technologies",
+      desc: "Fleet management systems, GPS guidance, drones, condition monitoring, and digital safety solutions.",
       gradient: "from-violet-600 to-violet-700"
     },
     {
-      icon: <Cpu className="w-7 h-7" />,
-      title: "Operational Optimisation",
-      desc: "Digital transformation, automation, and data analytics for business processes.",
+      icon: <Server className="w-7 h-7" />,
+      title: "IT & Enterprise Technology",
+      desc: "Servers, networks, data centers, cybersecurity, and cloud solutions in partnership with global IT leaders.",
       gradient: "from-amber-600 to-amber-700"
+    },
+    {
+      icon: <Droplets className="w-7 h-7" />,
+      title: "Oil & Gas Support",
+      desc: "Production optimization, pipeline integrity, shutdown planning, and HSSE compliance for oil & gas operations.",
+      gradient: "from-rose-600 to-rose-700"
+    },
+    {
+      icon: <Leaf className="w-7 h-7" />,
+      title: "Environmental & ESG",
+      desc: "Environmental management systems, ESIA support, monitoring, and ESG reporting aligned with international standards.",
+      gradient: "from-teal-600 to-teal-700"
     }
   ];
 
   const markets = [
     { icon: <Factory className="w-5 h-5" />, name: "Mining & Resources" },
     { icon: <Droplets className="w-5 h-5" />, name: "Oil & Gas" },
-    { icon: <Server className="w-5 h-5" />, name: "Data Centres" },
-    { icon: <Landmark className="w-5 h-5" />, name: "Financial Services" },
-    { icon: <Building2 className="w-5 h-5" />, name: "Government" },
-    { icon: <Users className="w-5 h-5" />, name: "Telecommunications" }
+    { icon: <Building2 className="w-5 h-5" />, name: "EPC Contractors" },
+    { icon: <Landmark className="w-5 h-5" />, name: "Government" },
+    { icon: <Leaf className="w-5 h-5" />, name: "Environmental" },
+    { icon: <Users className="w-5 h-5" />, name: "Industrial" }
   ];
 
   const stats = [
-    { value: "70+", label: "Countries Reached via Partners", icon: <Globe className="w-5 h-5" /> },
-    { value: "24/7", label: "Support & Monitoring", icon: <LockKeyhole className="w-5 h-5" /> },
-    { value: "99.9%", label: "System Availability", icon: <TrendingUp className="w-5 h-5" /> }
+    { value: "2019", label: "Established", icon: <Globe className="w-5 h-5" /> },
+    { value: "6+", label: "West African Countries", icon: <LockKeyhole className="w-5 h-5" /> },
+    { value: "6", label: "Core Service Lines", icon: <TrendingUp className="w-5 h-5" /> }
   ];
 
   return (
@@ -96,7 +108,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
             >
               <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">Technology & Engineering Solutions</span>
+              <span className="text-sm font-medium text-white/90">Engineering, Mining, EPC & Technology</span>
             </motion.div>
             
             <motion.h1 
@@ -106,10 +118,10 @@ export default function Home() {
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-[1.1]"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              Secure. Resilient.
+              Performance. Precision.
               <br />
               <span className="bg-gradient-to-r from-orange-400 via-orange-300 to-yellow-400 bg-clip-text text-transparent">
-                High-Performance.
+                Sustainability.
               </span>
             </motion.h1>
             
@@ -119,7 +131,7 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl leading-relaxed"
             >
-              Delivering advanced digital infrastructure, data centre, and cybersecurity solutions across Ghana and West Africa.
+              Full-lifecycle engineering, mining, EPC, technology, and environmental solutions for West Africa's resource sector.
             </motion.p>
             
             <motion.div 
@@ -247,13 +259,13 @@ export default function Home() {
                   About MOS
                 </span>
                 <h2 className="text-primary mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                  Your Trusted Technology Partner in West Africa
+                  Your Trusted Partner in West Africa
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
-                  Mining Optimisation Solutions Ltd (MOS) is a Ghana-based technology and engineering solutions company delivering advanced digital infrastructure, data centre, cybersecurity, and operational optimisation solutions.
+                  Mining Optimization Solutions Ltd (MOS) is a Ghana-based engineering, mining, EPC, technology, and environmental services company providing full-lifecycle solutions across the West African resource sector. Established in 2019.
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  We operate in mission-critical environments spanning mining, oil & gas, financial services, telecommunications, and government sectors. Our approach combines global best-in-class technologies with strong local execution capability.
+                  Operating across Ghana, Guinea, Côte d'Ivoire, Sierra Leone, Burkina Faso, and Mali, we deliver contract mining, EPC project delivery, mining technology integration, IT solutions, and environmental/ESG systems.
                 </p>
               </motion.div>
               
@@ -265,10 +277,12 @@ export default function Home() {
                 className="grid grid-cols-2 gap-4 mb-8"
               >
                 {[
-                  "Data Centre Solutions",
-                  "Cybersecurity Services",
-                  "Cloud Infrastructure",
-                  "Systems Integration"
+                  "Contract Mining",
+                  "EPC Services",
+                  "Mining Technologies",
+                  "IT & Enterprise Tech",
+                  "Oil & Gas Support",
+                  "Environmental & ESG"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
                     <div className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">

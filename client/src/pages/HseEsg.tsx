@@ -5,30 +5,30 @@ import { Card, CardContent } from "@/components/ui/card";
 import cybersecurityImg from "@assets/images/cybersecurity.jpg";
 
 export default function HseEsg() {
-  const securityPillars = [
+  const hsePillars = [
     {
       icon: <Shield className="w-6 h-6" />,
-      title: "Endpoint Security",
-      desc: "Advanced protection through CrowdStrike Falcon platform for all endpoints and workloads.",
+      title: "Safety & Compliance",
+      desc: "Comprehensive safety management systems and HSSE compliance audits for resource operations.",
       gradient: "from-blue-600 to-blue-700"
     },
     {
-      icon: <Lock className="w-6 h-6" />,
-      title: "Zero Trust Security",
-      desc: "Continuous verification and least-privilege access models for all users and systems.",
-      gradient: "from-violet-600 to-violet-700"
+      icon: <Leaf className="w-6 h-6" />,
+      title: "Environmental Management",
+      desc: "Environmental Management Systems (EMS), air, water, waste & noise monitoring.",
+      gradient: "from-emerald-600 to-emerald-700"
     },
     {
       icon: <Eye className="w-6 h-6" />,
-      title: "Threat Intelligence",
-      desc: "Real-time threat detection, incident response, and proactive security monitoring.",
-      gradient: "from-amber-600 to-amber-700"
+      title: "ESIA & Permitting",
+      desc: "Environmental and Social Impact Assessment support and permitting guidance.",
+      gradient: "from-violet-600 to-violet-700"
     },
     {
-      icon: <AlertTriangle className="w-6 h-6" />,
-      title: "Risk Management",
-      desc: "Comprehensive cyber risk assessments and regulatory compliance alignment.",
-      gradient: "from-rose-600 to-rose-700"
+      icon: <HeartHandshake className="w-6 h-6" />,
+      title: "Social Performance",
+      desc: "Stakeholder engagement and ESG reporting aligned with GRI, IFC, and Ghana EPA standards.",
+      gradient: "from-amber-600 to-amber-700"
     }
   ];
 
@@ -56,7 +56,7 @@ export default function HseEsg() {
             className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Security & Compliance
+            HSE & ESG
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export default function HseEsg() {
             transition={{ delay: 0.2 }}
             className="text-xl max-w-3xl mx-auto text-gray-200"
           >
-            Protecting critical assets through enterprise-grade cybersecurity and risk management solutions
+            Responsible operations that protect people, communities and the environment
           </motion.p>
         </div>
       </div>
@@ -83,18 +83,18 @@ export default function HseEsg() {
                 Our Approach
               </span>
               <h2 className="text-primary mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                Cybersecurity & Risk Management
+                Environmental & ESG Services
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
-                Leveraging CrowdStrike technologies and global vendor ecosystems through Westcon-Comstor, MOS delivers comprehensive cybersecurity services designed to protect enterprise and data centre environments against evolving threats.
+                MOS delivers comprehensive environmental and ESG solutions to help organizations meet regulatory requirements and sustainability goals while maintaining social license to operate across West Africa.
               </p>
               <ul className="space-y-4">
                 {[
-                  "Endpoint Detection and Response (EDR)",
-                  "Cloud and identity security",
-                  "Threat intelligence and incident response",
-                  "Cyber risk assessments and compliance alignment",
-                  "Security architecture for critical systems"
+                  "Environmental Management Systems (EMS)",
+                  "ESIA support and permitting guidance",
+                  "Air, water, waste & noise monitoring",
+                  "Social performance and stakeholder engagement",
+                  "ESG reporting (GRI, IFC, Ghana EPA)"
                 ].map((item, i) => (
                   <motion.li 
                     key={i} 
@@ -123,16 +123,16 @@ export default function HseEsg() {
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={cybersecurityImg} 
-                  alt="Cybersecurity Operations" 
+                  alt="Environmental Operations" 
                   className="w-full h-[400px] object-cover"
                 />
               </div>
             </motion.div>
           </div>
 
-          {/* Security Pillars */}
+          {/* HSE Pillars */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {securityPillars.map((pillar, i) => (
+            {hsePillars.map((pillar, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -176,9 +176,9 @@ export default function HseEsg() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: <Leaf className="w-8 h-8" />, title: "Environmental", desc: "Energy-efficient data centre designs and sustainable technology practices that minimize environmental impact.", gradient: "from-emerald-600 to-emerald-700" },
-              { icon: <HeartHandshake className="w-8 h-8" />, title: "Social", desc: "Building local capacity through training, knowledge transfer, and community engagement initiatives.", gradient: "from-amber-600 to-amber-700" },
-              { icon: <Shield className="w-8 h-8" />, title: "Governance", desc: "Strong compliance frameworks, regulatory alignment, and transparent business practices.", gradient: "from-blue-600 to-blue-700" }
+              { icon: <Leaf className="w-8 h-8" />, title: "Environmental", desc: "Air, water, waste and noise monitoring with comprehensive Environmental Management Systems for resource operations.", gradient: "from-emerald-600 to-emerald-700" },
+              { icon: <HeartHandshake className="w-8 h-8" />, title: "Social", desc: "Social performance, stakeholder engagement, and community relations to maintain social license to operate.", gradient: "from-amber-600 to-amber-700" },
+              { icon: <Shield className="w-8 h-8" />, title: "Governance", desc: "ESG reporting aligned with GRI, IFC standards, and Ghana EPA requirements for transparent operations.", gradient: "from-blue-600 to-blue-700" }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -219,10 +219,10 @@ export default function HseEsg() {
               Compliance & Standards
             </h3>
             <p className="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
-              Our solutions are designed to support regulatory compliance and align with international standards for data protection, cybersecurity, and operational resilience.
+              Our solutions support regulatory compliance and align with international standards for environmental protection, health & safety, and responsible operations.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              {["ISO 27001", "GDPR", "PCI DSS", "NIST", "SOC 2"].map((standard, i) => (
+              {["ISO 14001", "ISO 45001", "GRI Standards", "IFC Guidelines", "Ghana EPA"].map((standard, i) => (
                 <motion.div 
                   key={i}
                   initial={{ opacity: 0, scale: 0.9 }}

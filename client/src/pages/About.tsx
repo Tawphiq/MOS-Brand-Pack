@@ -14,10 +14,10 @@ import team6 from "@assets/images/team6.jpg";
 
 export default function About() {
   const values = [
-    { icon: <ShieldCheck className="w-6 h-6" />, title: "Security", desc: "Protecting critical assets through enterprise-grade security solutions.", gradient: "from-blue-600 to-blue-700" },
-    { icon: <Zap className="w-6 h-6" />, title: "Resilience", desc: "Building systems that ensure high availability and business continuity.", gradient: "from-amber-600 to-amber-700" },
-    { icon: <Target className="w-6 h-6" />, title: "Performance", desc: "Optimising operations for maximum efficiency and productivity.", gradient: "from-emerald-600 to-emerald-700" },
-    { icon: <Award className="w-6 h-6" />, title: "Excellence", desc: "Delivering quality solutions with global best practices.", gradient: "from-violet-600 to-violet-700" },
+    { icon: <Target className="w-6 h-6" />, title: "Performance", desc: "Delivering measurable results that improve throughput, uptime and operational efficiency.", gradient: "from-blue-600 to-blue-700" },
+    { icon: <Zap className="w-6 h-6" />, title: "Precision", desc: "Engineering accuracy, disciplined execution, and data-driven decisions.", gradient: "from-amber-600 to-amber-700" },
+    { icon: <ShieldCheck className="w-6 h-6" />, title: "Sustainability", desc: "Responsible operations that protect people, communities and the environment.", gradient: "from-emerald-600 to-emerald-700" },
+    { icon: <Award className="w-6 h-6" />, title: "Integrity", desc: "Ethical, transparent and accountable in all engagements.", gradient: "from-violet-600 to-violet-700" },
   ];
 
   const team = [
@@ -93,13 +93,13 @@ export default function About() {
               className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6"
             >
               <p className="text-lg">
-                Mining Optimisation Solutions Ltd (MOS) is a Ghana-based technology and engineering solutions company delivering advanced digital infrastructure, data centre, cybersecurity, and operational optimisation solutions across Ghana and West Africa.
+                Mining Optimization Solutions Ltd (MOS) is a Ghana-based engineering, mining, EPC, technology, and environmental services company providing full-lifecycle solutions to clients across the West African resource sector. Established in 2019 by a multidisciplinary team of experienced engineers with global practical backgrounds, MOS has evolved into a trusted partner for mining houses, oil & gas operators, EPC contractors, industrial firms, and government agencies.
               </p>
               <p>
-                MOS operates in mission-critical environments spanning the mining, oil & gas, EPC, financial services, telecommunications, government, and environmental sectors. We design, deploy, secure, and optimise enterprise IT and operational technology (OT) environments with a strong focus on availability, resilience, performance, and security.
+                MOS delivers a unique blend of contract mining execution, EPC project delivery, mining technology integration, IT solutions, and environmental/ESG systems, making it one of the region's few fully integrated resource-sector service providers.
               </p>
               <p>
-                Our approach combines global best-in-class technologies with strong local execution capability to support organizations running high-availability systems and data-intensive operations.
+                Our operations are rooted in Ghana, but our solutions extend across West Africa, addressing the region's need for efficient, responsible, and technologically advanced resource development.
               </p>
             </motion.div>
           </div>
@@ -123,7 +123,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Our Mission</h3>
                   <p className="text-gray-200 leading-relaxed">
-                    To deliver secure, resilient, and high-performance technology solutions that enable organizations to operate efficiently, protect critical assets, and scale sustainably.
+                    To design, build, operate, and optimize resource projects through engineering excellence, innovation, and unwavering commitment to safety, ESG and operational performance.
                   </p>
                 </CardContent>
               </Card>
@@ -143,7 +143,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Our Vision</h3>
                   <p className="text-gray-200 leading-relaxed">
-                    To become West Africa's trusted technology partner for data-driven optimisation, cybersecurity, and data-centre-enabled digital transformation.
+                    To become West Africa's most trusted partner for integrated mining, EPC, and technology-driven resource solutions, delivering sustainable growth for clients and communities.
                   </p>
                 </CardContent>
               </Card>

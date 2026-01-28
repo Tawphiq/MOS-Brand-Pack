@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Server, Shield, Cloud, Cpu, Settings, Wrench, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { ChevronRight, HardHat, Building2, Cpu, Server, Droplets, Leaf, ArrowRight, Sparkles, CheckCircle2, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -10,84 +10,99 @@ import cybersecurityImg from "@assets/images/cybersecurity.jpg";
 
 const services = [
   {
-    id: "datacentre",
-    icon: <Server className="w-6 h-6" />,
-    title: "Data Centre & Digital Infrastructure",
-    content: "MOS provides end-to-end data centre and digital infrastructure solutions designed to support secure, scalable, and highly available enterprise operations. We support on-premises, hybrid, and distributed data centre environments, ensuring regulatory compliance, operational efficiency, and long-term resilience.",
+    id: "contract-mining",
+    icon: <HardHat className="w-6 h-6" />,
+    title: "Contract Mining & Mine Operations",
+    content: "MOS serves as a full contract mining operator, providing end-to-end mine execution services. We deliver comprehensive mining solutions from open-pit operations to tailings management with a focus on safety, efficiency, and operational excellence.",
     details: [
-      "Data centre design, assessment, and optimisation",
-      "IT and OT infrastructure deployment",
-      "Server, storage, and virtualisation solutions",
-      "Secure network architecture and connectivity",
-      "Data centre cybersecurity and continuous monitoring",
-      "Business continuity and disaster recovery solutions"
+      "Open-pit load and haul operations",
+      "Fleet operations & maintenance",
+      "Tailings & waste management and handling",
+      "Manpower supply and shift optimization",
+      "Safety & compliance assurance"
     ],
     image: dataCenterImg,
     gradient: "from-blue-600 to-blue-700"
   },
   {
-    id: "cybersecurity",
-    icon: <Shield className="w-6 h-6" />,
-    title: "Cybersecurity & Risk Management",
-    content: "Leveraging CrowdStrike technologies and global vendor ecosystems through Westcon-Comstor, MOS delivers comprehensive cybersecurity services. Our solutions are designed to protect enterprise and data centre environments against evolving threats while supporting business continuity.",
+    id: "epc",
+    icon: <Building2 className="w-6 h-6" />,
+    title: "EPC Services",
+    content: "MOS is an EPC contractor delivering projects from concept to commissioning. We provide comprehensive Engineering, Procurement & Construction services for resource sector projects with disciplined project controls and quality assurance.",
     details: [
-      "Endpoint Detection and Response (EDR)",
-      "Cloud and identity security",
-      "Threat intelligence and incident response",
-      "Cyber risk assessments and compliance alignment",
-      "Security architecture for data centres and critical systems",
-      "Zero-trust security models"
+      "Front-end engineering (FEED)",
+      "Detailed engineering & constructability reviews",
+      "Procurement of equipment, materials & consumables",
+      "Mechanical, civil, structural & electrical construction",
+      "Project controls (cost, schedule, risk, quality)",
+      "Commissioning & handover"
     ],
     image: cybersecurityImg,
     gradient: "from-emerald-600 to-emerald-700"
   },
   {
-    id: "cloud",
-    icon: <Cloud className="w-6 h-6" />,
-    title: "Cloud & Infrastructure Solutions",
-    content: "We deliver cloud-ready infrastructure solutions that enable organizations to modernize their IT environments while maintaining security and performance. Our services include comprehensive solution architecture and technical consulting.",
+    id: "mining-tech",
+    icon: <Cpu className="w-6 h-6" />,
+    title: "Mining Technologies & Digital Systems",
+    content: "Modern resource operations require modern systems. MOS integrates and deploys advanced technologies across mines and industrial plants to improve efficiency, safety, and data-driven decision making.",
     details: [
-      "Cloud-ready and data centre infrastructure",
-      "Secure enterprise networking and connectivity",
-      "Solution architecture and technical consulting",
-      "Systems integration and deployment",
-      "Training, support, and managed services",
-      "Hybrid cloud implementations"
+      "Fleet Management Systems (FMS)",
+      "High-precision GPS and machine guidance systems",
+      "Drones & aerial surveying",
+      "Condition monitoring & asset health sensors",
+      "Digital safety solutions (IoT, real-time alerts)",
+      "Environmental monitoring technologies",
+      "Operations dashboards & data analytics platforms"
     ],
     image: dataCenterImg,
     gradient: "from-violet-600 to-violet-700"
   },
   {
-    id: "optimisation",
-    icon: <Cpu className="w-6 h-6" />,
-    title: "Operational Optimisation & Digitalization",
-    content: "MOS helps organizations transform their operations through automation, analytics, and digital solutions. We enable data-driven decision making and process optimization across enterprise environments.",
+    id: "it-enterprise",
+    icon: <Server className="w-6 h-6" />,
+    title: "IT Supplies & Enterprise Technology",
+    content: "MOS supports industrial clients with secure and reliable IT ecosystems. We are partners of major global IT firms such as Cisco, Dell, HP and CrowdStrike to provide comprehensive technology solutions.",
     details: [
-      "Automation of operational and business processes",
-      "Data analytics and performance dashboards",
-      "Digital transformation advisory and optimisation",
-      "Process re-engineering",
-      "Workflow automation",
-      "Performance monitoring solutions"
+      "Servers, storage systems and networks",
+      "Industrial-grade computers & rugged devices",
+      "Data center setup and power management",
+      "Surveillance, access control & security solutions",
+      "Cloud solutions, virtualization & cybersecurity",
+      "Network architecture and infrastructure audits",
+      "Business continuity & disaster recovery systems"
     ],
     image: cybersecurityImg,
     gradient: "from-amber-600 to-amber-700"
   },
   {
-    id: "professional",
-    icon: <Settings className="w-6 h-6" />,
-    title: "Professional Services",
-    content: "Our professional services team provides expert consulting, implementation, and ongoing support for enterprise technology initiatives. We bring global expertise with local execution capability.",
+    id: "oil-gas",
+    icon: <Droplets className="w-6 h-6" />,
+    title: "Oil & Gas Support Services",
+    content: "MOS provides specialized support services for the oil and gas sector, focusing on production optimization, maintenance, and compliance to ensure safe and efficient operations.",
     details: [
-      "Solution architecture and design",
-      "Technical consulting",
-      "Project management",
-      "Implementation services",
-      "Training and knowledge transfer",
-      "Managed services and support"
+      "Production optimization",
+      "Pipeline integrity & maintenance",
+      "Shutdown/turnaround planning",
+      "HSSE compliance audits",
+      "Remote monitoring & analytics"
     ],
     image: dataCenterImg,
     gradient: "from-rose-600 to-rose-700"
+  },
+  {
+    id: "environmental-esg",
+    icon: <Leaf className="w-6 h-6" />,
+    title: "Environmental & ESG Services",
+    content: "MOS delivers comprehensive environmental and ESG solutions to help organizations meet regulatory requirements and sustainability goals while maintaining social license to operate.",
+    details: [
+      "Environmental Management Systems (EMS)",
+      "ESIA support and permitting guidance",
+      "Air, water, waste & noise monitoring",
+      "Social performance and stakeholder engagement",
+      "ESG reporting (GRI, IFC, Ghana EPA)"
+    ],
+    image: cybersecurityImg,
+    gradient: "from-teal-600 to-teal-700"
   }
 ];
 

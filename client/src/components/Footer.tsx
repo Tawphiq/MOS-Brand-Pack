@@ -29,7 +29,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-300/80 text-sm leading-relaxed max-w-xs">
-              Delivering secure, resilient, and high-performance technology solutions across Ghana and West Africa.
+              Performance. Precision. Sustainability. Full-lifecycle solutions for West Africa's resource sector.
             </p>
             <div className="flex gap-3">
               <a 
@@ -95,11 +95,12 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                "Data Centre Solutions",
-                "Cybersecurity",
-                "Cloud Infrastructure",
-                "Operational Optimisation",
-                "Professional Services",
+                "Contract Mining",
+                "EPC Services",
+                "Mining Technologies",
+                "IT & Enterprise Tech",
+                "Oil & Gas Support",
+                "Environmental & ESG",
               ].map((service) => (
                 <li key={service}>
                   <span className="text-gray-300/80 text-sm">{service}</span>
@@ -119,13 +120,13 @@ export function Footer() {
                 <div className="bg-white/5 p-2 rounded-lg shrink-0">
                   <MapPin className="w-4 h-4 text-accent" />
                 </div>
-                <span className="text-gray-300/80 text-sm leading-relaxed">A80 Legon Bypass, Papao, Haatso, Accra, Ghana</span>
+                <span className="text-gray-300/80 text-sm leading-relaxed">Accra, Ghana, West Africa</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="bg-white/5 p-2 rounded-lg shrink-0">
                   <Phone className="w-4 h-4 text-accent" />
                 </div>
-                <a href="tel:+233599738900" className="text-gray-300/80 text-sm hover:text-white transition-colors" data-testid="link-footer-phone">+233 59973 8900</a>
+                <a href="tel:+233302524934" className="text-gray-300/80 text-sm hover:text-white transition-colors" data-testid="link-footer-phone">+233 302 524 934</a>
               </li>
               <li className="flex items-center gap-3">
                 <div className="bg-white/5 p-2 rounded-lg shrink-0">
