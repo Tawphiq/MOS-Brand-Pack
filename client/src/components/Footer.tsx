@@ -1,5 +1,8 @@
 import { Link } from "wouter";
-import { HardHat, Mail, MapPin, Phone, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
+import { SiX } from "react-icons/si";
+
+import logoImg from "@assets/images/logo.png";
 
 export function Footer() {
   return (
@@ -7,17 +10,15 @@ export function Footer() {
       <div className="container-padding grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {/* Brand */}
         <div className="space-y-4">
-          <div className="flex items-center gap-2 font-bold text-2xl">
-            <div className="bg-white text-primary p-1.5 rounded-md">
-              <HardHat className="h-6 w-6" />
-            </div>
+          <div className="flex items-center gap-3">
+            <img src={logoImg} alt="MOS Logo" className="h-12 w-auto bg-white rounded-md p-1" />
             <div className="flex flex-col leading-none">
-              <span className="text-lg">MINING OPTS</span>
+              <span className="text-lg font-bold">MINING OPTS</span>
               <span className="text-[10px] text-gray-400 font-normal tracking-widest">SOLUTIONS LTD</span>
             </div>
           </div>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Delivering performance, precision, and sustainability in mining, engineering, and construction solutions across West Africa.
+            Delivering secure, resilient, and high-performance technology solutions across Ghana and West Africa.
           </p>
         </div>
 
@@ -38,11 +39,11 @@ export function Footer() {
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-accent shrink-0 mt-1" />
-              <span className="text-gray-300 text-sm">A88 Legon Bypass, Westlands, Accra, Ghana</span>
+              <span className="text-gray-300 text-sm">A80 Legon Bypass, Papao, Haatso, Accra, Ghana</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-accent shrink-0" />
-              <span className="text-gray-300 text-sm">+233 24 473 4616</span>
+              <span className="text-gray-300 text-sm">+233 59973 8900</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-accent shrink-0" />
@@ -55,18 +56,15 @@ export function Footer() {
         <div>
           <h3 className="text-lg font-bold mb-4 text-accent">Connect</h3>
           <div className="flex gap-4 mb-6">
-            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-accent transition-colors">
+            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-accent transition-colors" aria-label="LinkedIn">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-accent transition-colors">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-accent transition-colors">
-              <Facebook className="w-5 h-5" />
+            <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-accent transition-colors" aria-label="X">
+              <SiX className="w-5 h-5" />
             </a>
           </div>
           <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} Mining Options & Solutions. All rights reserved.
+            © {new Date().getFullYear()} Mining Optimisation Solutions Ltd. All rights reserved.
           </p>
         </div>
       </div>

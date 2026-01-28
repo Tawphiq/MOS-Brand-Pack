@@ -1,6 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { api, type InsertContactMessage } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
+import { insertContactMessageSchema } from "@shared/schema";
 
 export function useSubmitContact() {
   const { toast } = useToast();
@@ -39,4 +42,33 @@ export function useSubmitContact() {
       });
     },
   });
+}
+
+export function useContact() {
+  const mutation = useSubmitContact();
+  
+  const form = useForm<InsertContactMessage>({
+    resolver: zodResolver(insertContactMessageSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (data: InsertContactMessage) => {
+    mutation.mutate(data, {
+      onSuccess: () => {
+        form.reset();
+      },
+    });
+  };
+
+  return {
+    form,
+    onSubmit,
+    isPending: mutation.isPending,
+  };
 }

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, HardHat } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+import logoImg from "@assets/images/logo.png";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -21,12 +23,10 @@ export function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-padding flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-primary" data-testid="link-logo">
-          <div className="bg-primary text-white p-2 rounded-md">
-            <HardHat className="h-6 w-6" />
-          </div>
+        <Link href="/" className="flex items-center gap-3" data-testid="link-logo">
+          <img src={logoImg} alt="MOS Logo" className="h-12 w-auto" />
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="tracking-tight text-lg font-bold">MINING OPTS</span>
+            <span className="tracking-tight text-lg font-bold text-primary">MINING OPTS</span>
             <span className="text-[10px] text-muted-foreground font-normal tracking-widest">SOLUTIONS LTD</span>
           </div>
         </Link>
