@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Send, Sparkles, ArrowRight } from "lucide-react";
 import { useContact } from "@/hooks/use-contact";
+import contactOfficeImg from "@/assets/images/contact-office.png";
 
 export default function Contact() {
   const { form, onSubmit, isPending } = useContact();
@@ -44,6 +45,21 @@ export default function Contact() {
           >
             Get in touch with our team for mining, EPC, and technology solutions
           </motion.p>
+        </div>
+      </div>
+
+      {/* Office Image Banner */}
+      <div className="relative h-[200px] md:h-[280px] overflow-hidden">
+        <img 
+          src={contactOfficeImg} 
+          alt="MOS Headquarters Accra Ghana" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <div className="container-padding">
+            <p className="text-lg font-medium">Accra, Ghana | West Africa</p>
+          </div>
         </div>
       </div>
 

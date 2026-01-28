@@ -11,6 +11,7 @@ import team3 from "@assets/images/team3.jpg";
 import team4 from "@assets/images/team4.jpg";
 import team5 from "@assets/images/team5.jpg";
 import team6 from "@assets/images/team6.jpg";
+import aboutCorporateImg from "@/assets/images/about-corporate.png";
 
 export default function About() {
   const values = [
@@ -65,6 +66,23 @@ export default function About() {
           </motion.p>
         </div>
       </div>
+
+      {/* Corporate Image Banner */}
+      <section className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <img 
+          src={aboutCorporateImg} 
+          alt="MOS Corporate Headquarters" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <div className="container-padding">
+            <p className="text-lg md:text-xl font-medium max-w-2xl">
+              Performance. Precision. Sustainability.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Corporate Overview */}
       <section className="section-padding bg-white">

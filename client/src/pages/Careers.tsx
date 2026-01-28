@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, Mail, GraduationCap, Users, Rocket, Heart, Sparkles, ArrowRight } from "lucide-react";
+import careersTeamImg from "@/assets/images/careers-team.png";
 
 export default function Careers() {
   const benefits = [
@@ -45,6 +46,23 @@ export default function Careers() {
           >
             Build your career with West Africa's trusted technology partner
           </motion.p>
+        </div>
+      </div>
+
+      {/* Team Image Banner */}
+      <div className="relative h-[250px] md:h-[350px] overflow-hidden">
+        <img 
+          src={careersTeamImg} 
+          alt="MOS Engineering Team" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <div className="container-padding">
+            <p className="text-lg md:text-xl font-medium max-w-2xl">
+              Join a team of engineers and innovators shaping Africa's resource sector
+            </p>
+          </div>
         </div>
       </div>
 

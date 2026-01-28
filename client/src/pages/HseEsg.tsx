@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Shield, Leaf, HeartHandshake, CheckCircle, Lock, Eye, AlertTriangle, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
-import cybersecurityImg from "@assets/images/cybersecurity.jpg";
+import hseSafetyImg from "@/assets/images/hse-safety.png";
 
 export default function HseEsg() {
   const hsePillars = [
@@ -122,8 +122,8 @@ export default function HseEsg() {
               <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-tl from-accent/20 to-transparent rounded-3xl -z-10" />
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src={cybersecurityImg} 
-                  alt="Environmental Operations" 
+                  src={hseSafetyImg} 
+                  alt="Environmental and Safety Operations" 
                   className="w-full h-[400px] object-cover"
                 />
               </div>
