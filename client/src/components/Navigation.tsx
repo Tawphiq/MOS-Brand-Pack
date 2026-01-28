@@ -21,28 +21,32 @@ export function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-padding flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 font-bold text-2xl text-primary">
-          <div className="bg-primary text-white p-2 rounded-sm">
+        <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-primary" data-testid="link-logo">
+          <div className="bg-primary text-white p-2 rounded-md">
             <HardHat className="h-6 w-6" />
           </div>
-          <span className="hidden sm:inline-block tracking-tight">MINING OPTS</span>
+          <div className="hidden sm:flex flex-col leading-none">
+            <span className="tracking-tight text-lg font-bold">MINING OPTS</span>
+            <span className="text-[10px] text-muted-foreground font-normal tracking-widest">SOLUTIONS LTD</span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center gap-6">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`text-sm font-semibold transition-colors hover:text-accent ${
-                location === item.href ? "text-accent border-b-2 border-accent" : "text-muted-foreground"
+                location === item.href ? "text-accent border-b-2 border-accent pb-1" : "text-foreground/70"
               }`}
+              data-testid={`nav-${item.href.replace('/', '') || 'home'}`}
             >
               {item.label}
             </Link>
           ))}
           <Link href="/contact">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg shadow-primary/20">
+            <Button className="bg-accent hover:bg-accent/90 text-white font-semibold" data-testid="button-get-quote">
               Get a Quote
             </Button>
           </Link>

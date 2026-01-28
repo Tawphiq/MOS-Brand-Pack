@@ -6,7 +6,7 @@ export default function Contact() {
     <div className="min-h-screen bg-gray-50">
       <div className="bg-primary py-16 text-center text-white">
         <div className="container-padding">
-          <h1 className="text-4xl font-bold font-heading mb-4">Contact Us</h1>
+          <h1 className="text-4xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-heading)' }}>Contact Us</h1>
           <p className="text-xl text-gray-300">We'd love to hear about your project.</p>
         </div>
       </div>

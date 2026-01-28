@@ -10,7 +10,7 @@ export default function HseEsg() {
       <div className="relative bg-secondary py-24 overflow-hidden">
          <div className="absolute inset-0 bg-black/20 z-0"></div>
          <div className="container-padding relative z-10 text-center text-white">
-           <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">HSE & ESG Commitment</h1>
+           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-heading)' }}>HSE & ESG Commitment</h1>
            <p className="text-xl max-w-3xl mx-auto opacity-90">
              Safety isn't just a policy at MOS; it's our culture. We are dedicated to zero harm and sustainable development.
            </p>

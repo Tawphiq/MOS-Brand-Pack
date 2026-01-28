@@ -27,9 +27,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white"
+            style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Performance. Precision. <span className="text-accent">Sustainability.</span>
+            Performance. Precision. <span className="text-orange-400">Sustainability.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -46,12 +47,12 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/services">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg">
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg" data-testid="button-explore-services">
                 Explore Our Services
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg bg-transparent">
+              <Button size="lg" variant="outline" className="border-white/80 text-white hover:bg-white/10 px-8 py-6 text-lg bg-white/5 backdrop-blur-sm" data-testid="button-contact-hero">
                 Contact Us
               </Button>
             </Link>

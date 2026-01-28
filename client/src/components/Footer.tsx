@@ -7,11 +7,14 @@ export function Footer() {
       <div className="container-padding grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {/* Brand */}
         <div className="space-y-4">
-          <div className="flex items-center space-x-2 font-bold text-2xl">
-            <div className="bg-white text-primary p-1.5 rounded-sm">
+          <div className="flex items-center gap-2 font-bold text-2xl">
+            <div className="bg-white text-primary p-1.5 rounded-md">
               <HardHat className="h-6 w-6" />
             </div>
-            <span>MINING OPTS</span>
+            <div className="flex flex-col leading-none">
+              <span className="text-lg">MINING OPTS</span>
+              <span className="text-[10px] text-gray-400 font-normal tracking-widest">SOLUTIONS LTD</span>
+            </div>
           </div>
           <p className="text-gray-300 text-sm leading-relaxed">
             Delivering performance, precision, and sustainability in mining, engineering, and construction solutions across West Africa.

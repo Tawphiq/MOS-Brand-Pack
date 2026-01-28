@@ -56,7 +56,7 @@ export default function Services() {
       {/* Header */}
       <div className="bg-primary text-white py-20 text-center">
         <div className="container-padding">
-          <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-heading)' }}>Our Services</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">Integrated solutions powered by expertise and innovation.</p>
         </div>
       </div>

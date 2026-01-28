@@ -19,7 +19,7 @@ export default function About() {
       <div className="bg-primary py-20 text-center text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container-padding relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">About MOS</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-heading)' }}>About MOS</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">Building a legacy of excellence in African mining and infrastructure.</p>
         </div>
       </div>

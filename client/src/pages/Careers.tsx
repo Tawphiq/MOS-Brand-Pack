@@ -6,7 +6,7 @@ export default function Careers() {
     <div className="min-h-screen bg-gray-50">
       <div className="bg-primary py-20 text-center text-white">
         <div className="container-padding">
-          <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">Join Our Team</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-heading)' }}>Join Our Team</h1>
           <p className="text-xl text-gray-300">Build your future with a leader in African infrastructure.</p>
         </div>
       </div>
