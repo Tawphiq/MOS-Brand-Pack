@@ -155,9 +155,9 @@ export default function Home() {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Hero Section - Professional Industry Standard Design */}
       <section className="relative min-h-screen flex items-center overflow-hidden -mt-20 pt-20">
-        {/* Background Image with Parallax - extends behind navbar */}
+        {/* Background Image with Parallax */}
         <motion.div 
-          className="absolute inset-x-0 top-[-80px] bottom-0 z-0"
+          className="absolute inset-0 z-0"
           style={{ opacity: heroOpacity, scale: heroScale }}
         >
           <div 
