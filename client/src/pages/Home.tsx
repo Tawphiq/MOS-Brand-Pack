@@ -167,7 +167,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="max-w-3xl"
+            className="max-w-3xl text-center md:text-left mx-auto md:mx-0"
           >
             {/* Headline */}
             <h1 
@@ -181,12 +181,12 @@ export default function Home() {
             </h1>
             
             {/* Subtext */}
-            <p className="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed mb-8 mx-auto md:mx-0">
               End-to-end engineering, mining operations, and environmental solutions across West Africa.
             </p>
             
             {/* CTAs */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               <Link href="/services">
                 <Button 
                   size="lg" 

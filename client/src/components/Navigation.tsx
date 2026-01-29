@@ -17,28 +17,31 @@ export function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
+  const isHomePage = location === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      setScrolled(scrollY > 20);
+      // On homepage, become solid after scrolling 100px
+      const threshold = isHomePage ? 100 : 20;
+      setScrolled(scrollY > threshold);
     };
     
-    // Check immediately on mount to set correct initial state
-    if (typeof window !== 'undefined') {
-      handleScroll();
-    }
+    handleScroll();
     
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
+
+  const showSolidBg = scrolled || !isHomePage;
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 bg-primary transition-all duration-500 ${
-        scrolled 
-          ? "shadow-lg shadow-black/5 border-b border-primary/20" 
-          : "border-b border-primary/30"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        showSolidBg 
+          ? "bg-primary shadow-lg shadow-black/10" 
+          : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
