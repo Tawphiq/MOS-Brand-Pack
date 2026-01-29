@@ -120,12 +120,29 @@ shared/           # Shared code between frontend/backend
 
 ### Website Redesign (January 29, 2026)
 - **Hero Section**: Redesigned with cleaner layout, better typography hierarchy, and professional appearance
+  - New headline: "Powering Africa's Resource Future" with gradient text effect
+  - Professional trust indicators with icons for ISO Certified, 24/7 Operations, and ESG Aligned
+  - Clean glassmorphism stats card showing key metrics
+  - Data-testid attributes added for testing
 - **Navbar**: Improved visibility with dark gradient overlay on transparent state for better contrast
 - **Industries Section**: New professional image cards with generated cover images for each industry
 - **Industry Cover Images**: Generated 6 professional images for Mining, Oil & Gas, EPC, Government, Environmental, and Industrial sectors
+
+### Partner Logos (Trusted by Industry Leaders)
+- Asante Gold Corporation
+- MTN
+- Bank of Ghana
+- OmniBSIC Bank
+- AngloGold Ashanti
+- Gold Fields
+- Agricultural Development Bank (ADB)
+- Westcon-Comstor
+- CrowdStrike
+- Ramjack Technology Solutions
 
 ### Assets & Branding
 - Company logo and partner logos integrated throughout
 - Team photos displayed on About and Careers pages
 - Industry cover images: industry-mining.png, industry-oil-gas.png, industry-epc.png, industry-government.png, industry-environmental.png, industry-industrial.png
-- All images stored in `client/src/assets/images/` using `@assets` alias
+- Partner logos stored in `attached_assets/` using `@assets` alias
+- Other images stored in `client/src/assets/images/` using `@assets/images` alias
