@@ -11,7 +11,7 @@ import team3 from "@/assets/images/team3.jpg";
 import team4 from "@/assets/images/team4.jpg";
 import team5 from "@/assets/images/team5.jpg";
 import team6 from "@/assets/images/team6.jpg";
-import aboutCorporateImg from "@/assets/images/about-team-meeting.jpg";
+import aboutCorporateImg from "@/assets/images/team-mining-engineers.png";
 
 export default function About() {
   const values = [

@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, Send, Sparkles, ArrowRight } from "lucide-react";
 import { useContact } from "@/hooks/use-contact";
-import contactOfficeImg from "@/assets/images/office-headquarters.jpg";
+import contactOfficeImg from "@/assets/images/ghana-headquarters.png";
 
 export default function Contact() {
   const { form, onSubmit, isPending } = useContact();

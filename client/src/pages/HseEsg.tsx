@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Shield, Leaf, HeartHandshake, CheckCircle, Lock, Eye, AlertTriangle, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
-import hseSafetyImg from "@/assets/images/esg-sustainability.jpg";
+import hseSafetyImg from "@/assets/images/esg-rainforest.png";
 
 export default function HseEsg() {
   const hsePillars = [
