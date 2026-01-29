@@ -36,7 +36,7 @@ export function LogoMarquee({ logos, speed = 25, className = "" }: LogoMarqueePr
             <img 
               src={logo.src} 
               alt={logo.alt} 
-              className="h-10 md:h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0" 
+              className="h-10 md:h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300" 
             />
           </div>
         ))}
