@@ -116,7 +116,7 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="relative h-[60vh] min-h-[500px] overflow-hidden -mt-20 pt-20">
+      <div className="relative h-[60vh] min-h-[500px] overflow-hidden -mt-20 sm:-mt-24 pt-20 sm:pt-24">
         <motion.img 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}

@@ -44,7 +44,7 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container-padding flex h-20 items-center justify-between gap-4">
+      <div className="container-padding flex h-20 sm:h-24 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 group" data-testid="link-logo">
           <motion.div 
             className="relative"
@@ -53,17 +53,17 @@ export function Navigation() {
           >
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative p-2 rounded-xl">
-              <img src={logoImg} alt="MOS Logo" className="relative h-10 w-auto" />
+              <img src={logoImg} alt="MOS Logo" className="relative h-12 w-auto sm:h-14 md:h-16" />
             </div>
           </motion.div>
-          <div className="hidden sm:flex flex-col leading-none">
+          <div className="hidden sm:flex flex-col leading-none gap-0.5">
             <span 
-              className="tracking-tight text-lg font-bold text-white transition-colors" 
+              className="tracking-tight text-lg sm:text-xl font-bold text-white transition-colors" 
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               MINING OPTIMIZATION
             </span>
-            <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70 transition-colors">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/95 transition-colors">
               Solutions Ltd
             </span>
           </div>
@@ -130,10 +130,10 @@ export function Navigation() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-6 border-b border-gray-100">
                   <div className="flex items-center gap-3">
-                    <img src={logoImg} alt="MOS Logo" className="h-10 w-auto" />
-                    <div className="flex flex-col leading-none">
-                      <span className="font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
-                      <span className="text-[9px] text-muted-foreground tracking-widest">SOLUTIONS LTD</span>
+                    <img src={logoImg} alt="MOS Logo" className="h-14 w-auto" />
+                    <div className="flex flex-col leading-none gap-0.5">
+                      <span className="text-base font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
+                      <span className="text-xs font-semibold text-foreground/90 tracking-[0.2em] uppercase">SOLUTIONS LTD</span>
                     </div>
                   </div>
                 </div>

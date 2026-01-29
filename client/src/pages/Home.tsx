@@ -154,7 +154,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Hero Section - Professional Industry Standard Design */}
-      <section className="relative min-h-screen flex items-center overflow-hidden -mt-20 pt-20">
+      <section className="relative min-h-screen flex items-center overflow-hidden -mt-20 sm:-mt-24 pt-20 sm:pt-24">
         {/* Background Image with Parallax */}
         <motion.div 
           className="absolute inset-0 z-0"
