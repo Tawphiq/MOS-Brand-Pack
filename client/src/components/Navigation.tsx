@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, ChevronRight } from "lucide-react";
+import { Menu, ChevronRight, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 import logoImg from "@assets/images/logo.png";
 
@@ -18,114 +20,168 @@ export function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 20);
+      setIsAtTop(scrollY < 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHomePage = location === "/";
+  const showTransparent = isHomePage && isAtTop;
+
   return (
-    <header 
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+    <motion.header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? "bg-white/95 backdrop-blur-lg shadow-sm border-b border-gray-100" 
-          : "bg-white/80 backdrop-blur-md border-b border-transparent"
+          ? "bg-white/95 dark:bg-background/95 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100 dark:border-border" 
+          : showTransparent
+            ? "bg-transparent border-b border-transparent"
+            : "bg-white/90 dark:bg-background/90 backdrop-blur-lg border-b border-gray-100/50 dark:border-border/50"
       }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="container-padding flex h-20 items-center justify-between gap-4">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group" data-testid="link-logo">
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity" />
-            <img src={logoImg} alt="MOS Logo" className="relative h-11 w-auto" />
-          </div>
+          <motion.div 
+            className="relative"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className={`relative p-2 rounded-xl ${showTransparent ? "bg-white/10 backdrop-blur-sm" : ""}`}>
+              <img src={logoImg} alt="MOS Logo" className="relative h-10 w-auto" />
+            </div>
+          </motion.div>
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="tracking-tight text-lg font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
+            <span 
+              className={`tracking-tight text-lg font-bold transition-colors ${showTransparent ? "text-white" : "text-primary dark:text-foreground"}`} 
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               MINING OPTS
             </span>
-            <span className="text-[10px] text-muted-foreground font-medium tracking-[0.2em] uppercase">
+            <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors ${showTransparent ? "text-white/70" : "text-muted-foreground"}`}>
               Solutions Ltd
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-1 flex-wrap">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`relative px-4 py-2 text-sm font-semibold transition-colors rounded-lg ${
-                location === item.href 
-                  ? "text-primary bg-primary/5" 
-                  : "text-foreground/70 hover:text-primary"
-              }`}
+              className="relative px-4 py-2.5 text-sm font-semibold transition-all rounded-xl group"
               data-testid={`nav-${item.href.replace('/', '') || 'home'}`}
             >
-              {item.label}
+              <span className={`relative z-10 transition-colors ${
+                location === item.href 
+                  ? showTransparent ? "text-white" : "text-primary dark:text-foreground" 
+                  : showTransparent ? "text-white/80 hover:text-white" : "text-foreground/70 dark:text-foreground/70 hover:text-primary dark:hover:text-foreground"
+              }`}>
+                {item.label}
+              </span>
               {location === item.href && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" />
+                <motion.span 
+                  layoutId="nav-indicator"
+                  className={`absolute inset-0 rounded-xl ${showTransparent ? "bg-white/10" : "bg-primary/5 dark:bg-foreground/5"}`}
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              {location === item.href && (
+                <motion.span 
+                  layoutId="nav-underline"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full" 
+                />
               )}
             </Link>
           ))}
-          <Link href="/contact" className="ml-4">
-            <Button 
-              className="bg-accent text-white font-semibold" 
-              data-testid="button-get-quote"
-            >
-              Get a Quote
-              <ChevronRight className="ml-1 w-4 h-4" />
-            </Button>
-          </Link>
+          
+          <div className="flex items-center gap-2 ml-4">
+            <ThemeToggle />
+            <Link href="/contact">
+              <Button 
+                className="bg-accent text-white font-semibold px-6" 
+                data-testid="button-get-quote"
+              >
+                Get a Quote
+                <ChevronRight className="ml-1 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
         </nav>
 
-        {/* Mobile Nav */}
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
+              <Button 
+                variant={showTransparent ? "ghost" : "ghost"} 
+                size="icon" 
+                className={showTransparent ? "text-white hover:bg-white/10" : ""}
+                data-testid="button-mobile-menu"
+              >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[360px] bg-white">
-              <div className="flex items-center gap-3 mb-8 mt-4">
-                <img src={logoImg} alt="MOS Logo" className="h-10 w-auto" />
-                <div className="flex flex-col leading-none">
-                  <span className="font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
-                  <span className="text-[9px] text-muted-foreground tracking-widest">SOLUTIONS LTD</span>
+            <SheetContent side="right" className="w-[320px] sm:w-[380px] bg-white dark:bg-card p-0">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-border">
+                  <div className="flex items-center gap-3">
+                    <img src={logoImg} alt="MOS Logo" className="h-10 w-auto" />
+                    <div className="flex flex-col leading-none">
+                      <span className="font-bold text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
+                      <span className="text-[9px] text-muted-foreground tracking-widest">SOLUTIONS LTD</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <nav className="flex flex-col gap-1 p-4 flex-1">
+                  {NAV_ITEMS.map((item, i) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <Link
+                        href={item.href}
+                        className={`flex items-center justify-between p-4 rounded-xl text-base font-medium transition-all ${
+                          location === item.href 
+                            ? "text-primary dark:text-foreground bg-primary/5 dark:bg-foreground/5 border-l-4 border-accent" 
+                            : "text-foreground hover:bg-gray-50 dark:hover:bg-border/50"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                        data-testid={`nav-mobile-${item.href.replace('/', '') || 'home'}`}
+                      >
+                        {item.label}
+                        <ChevronRight className={`w-4 h-4 ${location === item.href ? "text-accent" : "text-gray-300 dark:text-muted-foreground"}`} />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+                
+                <div className="p-6 border-t border-gray-100 dark:border-border">
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full bg-accent h-12" data-testid="button-mobile-get-quote">
+                      Get a Quote
+                      <ChevronRight className="ml-1 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
-              <nav className="flex flex-col gap-1">
-                {NAV_ITEMS.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`flex items-center justify-between p-4 rounded-xl text-base font-medium transition-all ${
-                      location === item.href 
-                        ? "text-primary bg-primary/5 border-l-4 border-accent" 
-                        : "text-foreground hover:bg-gray-50"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                    <ChevronRight className={`w-4 h-4 ${location === item.href ? "text-accent" : "text-gray-300"}`} />
-                  </Link>
-                ))}
-                <Link href="/contact" onClick={() => setIsOpen(false)} className="mt-4">
-                  <Button className="w-full bg-accent" data-testid="button-mobile-get-quote">
-                    Get a Quote
-                    <ChevronRight className="ml-1 w-4 h-4" />
-                  </Button>
-                </Link>
-              </nav>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

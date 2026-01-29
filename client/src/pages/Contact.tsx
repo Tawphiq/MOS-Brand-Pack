@@ -3,19 +3,63 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Send, Sparkles, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Sparkles, ArrowRight, Building2 } from "lucide-react";
 import { useContact } from "@/hooks/use-contact";
 import contactOfficeImg from "@/assets/images/contact-communication.png";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
 
 export default function Contact() {
   const { form, onSubmit, isPending } = useContact();
   const { register, handleSubmit, formState: { errors } } = form;
 
+  const contactInfo = [
+    { 
+      icon: <MapPin className="w-6 h-6" />, 
+      title: "Visit Us", 
+      value: "A80 Legon Bypass, Papao\nHaatso, Accra, Ghana",
+      gradient: "from-blue-600 to-blue-700"
+    },
+    { 
+      icon: <Phone className="w-6 h-6" />, 
+      title: "Call Us", 
+      value: "+233 59973 8900",
+      link: "tel:+233599738900",
+      gradient: "from-emerald-600 to-emerald-700"
+    },
+    { 
+      icon: <Mail className="w-6 h-6" />, 
+      title: "Email Us", 
+      value: "info@miningopts.com",
+      link: "mailto:info@miningopts.com",
+      gradient: "from-violet-600 to-violet-700"
+    },
+    { 
+      icon: <Clock className="w-6 h-6" />, 
+      title: "Business Hours", 
+      value: "Mon - Fri: 8:00 AM - 5:00 PM",
+      gradient: "from-amber-600 to-amber-700"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Cover Image */}
-      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
-        <img 
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-card">
+      <div className="relative h-[60vh] min-h-[500px] overflow-hidden -mt-20 pt-20">
+        <motion.img 
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
           src={contactOfficeImg} 
           alt="Contact MOS - Professional Business Partnership" 
           className="w-full h-full object-cover"
@@ -26,16 +70,16 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 mb-8"
             >
               <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">Let's Talk</span>
+              <span className="text-sm font-medium text-white/90">Get In Touch</span>
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white" 
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Contact Us
@@ -44,69 +88,70 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 max-w-xl mx-auto"
+              className="text-xl text-gray-300 max-w-2xl mx-auto"
             >
-              Get in touch with our team for mining, EPC, and technology solutions
+              Let's discuss how we can help transform your operations
             </motion.p>
           </div>
         </div>
       </div>
 
-      <div className="container-padding py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Info Side */}
+      <div className="container-padding py-24">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20"
+        >
+          {contactInfo.map((info, i) => (
+            <motion.div key={i} variants={itemVariants}>
+              <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group" data-testid={`card-contact-info-${i}`}>
+                <CardContent className="p-8 text-center">
+                  <motion.div 
+                    className={`w-16 h-16 bg-gradient-to-br ${info.gradient} text-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    {info.icon}
+                  </motion.div>
+                  <h3 className="font-bold text-lg mb-3 text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>{info.title}</h3>
+                  {info.link ? (
+                    <a 
+                      href={info.link} 
+                      className="text-muted-foreground hover:text-primary dark:hover:text-foreground transition-colors whitespace-pre-line"
+                      data-testid={`link-contact-${info.title.toLowerCase().replace(' ', '-')}`}
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <p className="text-muted-foreground whitespace-pre-line">{info.value}</p>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-4">
-              <span className="w-8 h-0.5 bg-accent rounded-full" />
-              Reach Out
+            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
+              <span className="w-10 h-0.5 bg-accent rounded-full" />
+              Send a Message
             </span>
-            <h2 className="text-primary mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-              Get In Touch
+            <h2 className="text-primary dark:text-foreground mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+              We'd Love to Hear From You
             </h2>
-            <p className="text-muted-foreground mb-10 leading-relaxed text-lg">
-              Whether you need contract mining services, EPC solutions, mining technology integration, or enterprise IT support, our team is ready to help. Reach out to discuss how MOS can support your resource sector projects.
+            <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
+              Whether you need contract mining services, EPC solutions, mining technology integration, or enterprise IT support, our team is ready to help. Fill out the form and we'll get back to you within 24 hours.
             </p>
 
-            <div className="space-y-6">
-              {[
-                { icon: <MapPin className="w-5 h-5" />, title: "Address", value: "Accra, Ghana\nWest Africa" },
-                { icon: <Phone className="w-5 h-5" />, title: "Phone", value: "+233 302 524 934" },
-                { icon: <Mail className="w-5 h-5" />, title: "Email", value: "info@miningopts.com" },
-                { icon: <Clock className="w-5 h-5" />, title: "Business Hours", value: "Monday - Friday: 8:00 AM - 5:00 PM" }
-              ].map((item, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary">{item.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-foreground mb-1" style={{ fontFamily: 'var(--font-heading)' }}>{item.title}</h3>
-                    <p className="text-muted-foreground text-sm whitespace-pre-line">{item.value}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
             <Card className="shadow-2xl border-0 overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5 pb-6 pt-8 px-8">
-                <CardTitle className="text-xl text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
+              <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 pb-6 pt-8 px-8">
+                <CardTitle className="text-xl text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
                   Send Us a Message
                 </CardTitle>
                 <p className="text-sm text-muted-foreground mt-1">We'll get back to you within 24 hours</p>
@@ -162,7 +207,7 @@ export default function Contact() {
                       placeholder="Tell us about your project or requirements..." 
                       rows={5}
                       {...register("message")}
-                      className={errors.message ? "border-destructive" : "border-gray-200"}
+                      className={`min-h-[140px] resize-none ${errors.message ? "border-destructive" : ""}`}
                       data-testid="input-message"
                     />
                     {errors.message && <p className="text-xs text-destructive mt-1">{errors.message.message}</p>}
@@ -170,6 +215,7 @@ export default function Contact() {
                   
                   <Button 
                     type="submit" 
+                    size="lg"
                     className="w-full bg-accent"
                     disabled={isPending}
                     data-testid="button-submit-contact"
@@ -178,15 +224,87 @@ export default function Contact() {
                       "Sending..."
                     ) : (
                       <>
-                        <Send className="w-4 h-4 mr-2" />
+                        <Send className="w-5 h-5 mr-2" />
                         Send Message
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className="w-5 h-5 ml-2" />
                       </>
                     )}
                   </Button>
                 </form>
               </CardContent>
             </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:pl-8"
+          >
+            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
+              <span className="w-10 h-0.5 bg-accent rounded-full" />
+              Our Location
+            </span>
+            <h2 className="text-primary dark:text-foreground mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+              Visit Our Office
+            </h2>
+            <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
+              We're located in the heart of Accra, Ghana. Feel free to schedule a visit to discuss your project in person.
+            </p>
+
+            <Card className="shadow-2xl border-0 overflow-hidden mb-8">
+              <div className="h-[300px] bg-gray-200 dark:bg-border relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15881.23507850798!2d-0.22!3d5.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzknMDAuMCJOIDDCsDEzJzEyLjAiVw!5e0!3m2!1sen!2sgh!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                />
+              </div>
+              <CardContent className="p-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-6 h-6 text-primary dark:text-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-foreground mb-1" style={{ fontFamily: 'var(--font-heading)' }}>MOS Headquarters</h3>
+                    <p className="text-muted-foreground">
+                      A80 Legon Bypass, Papao<br />
+                      Haatso, Accra, Ghana
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 dark:from-primary/10 dark:via-accent/10 dark:to-secondary/10 rounded-2xl p-8 border border-primary/10 dark:border-border">
+              <h3 className="font-bold text-foreground mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Prefer a Different Channel?</h3>
+              <p className="text-muted-foreground mb-6">
+                You can also reach us directly via email or phone:
+              </p>
+              <div className="space-y-4">
+                <a 
+                  href="mailto:info@miningopts.com" 
+                  className="flex items-center gap-3 text-primary dark:text-foreground hover:text-accent transition-colors"
+                  data-testid="link-contact-alt-email"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span className="font-medium">info@miningopts.com</span>
+                </a>
+                <a 
+                  href="tel:+233599738900" 
+                  className="flex items-center gap-3 text-primary dark:text-foreground hover:text-accent transition-colors"
+                  data-testid="link-contact-alt-phone"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span className="font-medium">+233 59973 8900</span>
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

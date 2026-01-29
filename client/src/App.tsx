@@ -4,9 +4,10 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Pages
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
@@ -14,24 +15,42 @@ import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
-// Scroll to top on route change
 function ScrollToTop() {
   const [pathname] = useLocation();
   
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
   
   return null;
 }
 
-function Router() {
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  in: { opacity: 1, y: 0 },
+  out: { opacity: 0, y: -20 }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.4
+};
+
+function AnimatedRoutes() {
+  const [location] = useLocation();
+  
   return (
-    <div className="flex flex-col min-h-screen">
-      <ScrollToTop />
-      <Navigation />
-      <main className="flex-grow">
-        <Switch>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location}
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <Switch location={location}>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
@@ -39,8 +58,21 @@ function Router() {
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+function Router() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
+      <Navigation />
+      <main className="flex-grow pt-20">
+        <AnimatedRoutes />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
