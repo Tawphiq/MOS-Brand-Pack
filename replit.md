@@ -118,7 +118,14 @@ shared/           # Shared code between frontend/backend
 - Added flex-wrap and gap classes to flex layouts
 - Added data-testid attributes to interactive elements
 
+### Website Redesign (January 29, 2026)
+- **Hero Section**: Redesigned with cleaner layout, better typography hierarchy, and professional appearance
+- **Navbar**: Improved visibility with dark gradient overlay on transparent state for better contrast
+- **Industries Section**: New professional image cards with generated cover images for each industry
+- **Industry Cover Images**: Generated 6 professional images for Mining, Oil & Gas, EPC, Government, Environmental, and Industrial sectors
+
 ### Assets & Branding
 - Company logo and partner logos integrated throughout
 - Team photos displayed on About and Careers pages
-- All images stored in `attached_assets/images/` using `@assets` alias
+- Industry cover images: industry-mining.png, industry-oil-gas.png, industry-epc.png, industry-government.png, industry-environmental.png, industry-industrial.png
+- All images stored in `client/src/assets/images/` using `@assets` alias
