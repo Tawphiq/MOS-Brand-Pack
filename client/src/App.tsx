@@ -62,11 +62,14 @@ function AnimatedRoutes() {
 }
 
 function Router() {
+  const [location] = useLocation();
+  const isHome = location === "/";
+
   return (
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <Navigation />
-      <main className="flex-grow pt-20 sm:pt-24">
+      <main className={`flex-grow ${isHome ? "" : "pt-20 sm:pt-24"}`}>
         <AnimatedRoutes />
       </main>
       <Footer />

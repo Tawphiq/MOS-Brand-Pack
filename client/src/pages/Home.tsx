@@ -145,8 +145,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden -mt-20 sm:-mt-24">
+      {/* Hero Section — starts at viewport top; background extends behind navbar for seamless blend */}
+      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <motion.div 
@@ -156,9 +156,9 @@ export default function Home() {
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-gray-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/60 via-transparent to-transparent" />
+          {/* Gradient overlay — no overlay at top so hero blends with transparent nav */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 top-[40%] bg-gradient-to-r from-gray-950/60 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Content */}
