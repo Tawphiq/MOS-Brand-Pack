@@ -13,28 +13,28 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "MOS has been instrumental in transforming our mining operations. Their fleet management systems increased our efficiency by over 30%, and their team's expertise is unmatched in the region.",
-    author: "Kwame Mensah",
-    role: "Operations Director",
-    company: "West African Gold Corp"
+    quote: "MOS has been instrumental in transforming our mining operations at Iduapriem. Their fleet and production monitoring solutions give us real-time visibility from pit to plant and have significantly improved our asset utilisation and safety performance.",
+    author: "Nnmannii Bayerianaa",
+    role: "Director-Mining",
+    company: "AngloGold Ashanti Iduapriem Mine"
   },
   {
-    quote: "The cybersecurity solutions MOS implemented have given us peace of mind. Their 24/7 monitoring and rapid response capabilities are exactly what our enterprise needed.",
-    author: "Sarah Okonkwo",
-    role: "CTO",
-    company: "Pan-African Energy Solutions"
+    quote: "From design coordination to site delivery, MOS understands the realities of complex construction projects. Their structured cabling, networking and security systems integrate seamlessly with our architectural designs and help us hand over smarter buildings to our clients.",
+    author: "Wilson Appenteng Frimpong",
+    role: "CEO",
+    company: "Crativ Skills Ltd (Architectural Services)"
   },
   {
-    quote: "From concept to commissioning, MOS delivered our data center project on time and within budget. Their EPC expertise and attention to detail exceeded our expectations.",
-    author: "Emmanuel Asante",
-    role: "Infrastructure Manager",
-    company: "Ghana National Bank"
+    quote: "As a consulting firm, we rely on partners who bring both technical depth and practical field experience. MOS has consistently delivered robust infrastructure and ICT solutions that support the long-term strategies we design for our clients.",
+    author: "Rexford Jones Baffoe",
+    role: "CEO",
+    company: "Ferfed Consult Ltd"
   },
   {
-    quote: "MOS's environmental monitoring systems have helped us maintain compliance and demonstrate our commitment to sustainability to stakeholders across the region.",
-    author: "Dr. Amina Diallo",
-    role: "ESG Director",
-    company: "Sahel Mining Group"
+    quote: "Working in procurement, reliability and total cost of ownership are critical. MOS is a trusted partner for sourcing and supporting technology for our operations in Guinea, giving us confidence in quality, delivery and after‑sales support.",
+    author: "Binta Diallo",
+    role: "Procurement Managem",
+    company: "Guinea"
   }
 ];
 
