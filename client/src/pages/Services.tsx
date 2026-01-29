@@ -123,9 +123,9 @@ export default function Services() {
           transition={{ duration: 1.5 }}
           src={servicesHeroImg} 
           alt="MOS Engineering and Technology Services" 
-          className="w-full h-full object-cover"
+          className="absolute inset-x-0 top-[-80px] bottom-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
+        <div className="absolute inset-x-0 top-[-80px] bottom-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container-padding text-center text-white relative z-10">
             <motion.div

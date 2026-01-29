@@ -20,29 +20,28 @@ export function Navigation() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setScrolled(scrollY > 20);
-      setIsAtTop(scrollY < 100);
     };
-    window.addEventListener("scroll", handleScroll);
+    
+    // Check immediately on mount to set correct initial state
+    if (typeof window !== 'undefined') {
+      handleScroll();
+    }
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isHomePage = location === "/";
-  const showTransparent = isHomePage && isAtTop;
-
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-primary transition-all duration-500 ${
         scrolled 
-          ? "bg-white/98 dark:bg-background/98 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-200 dark:border-border" 
-          : showTransparent
-            ? "bg-gradient-to-b from-black/40 via-black/20 to-transparent border-b border-white/10"
-            : "bg-white/95 dark:bg-background/95 backdrop-blur-lg border-b border-gray-200/50 dark:border-border/50"
+          ? "shadow-lg shadow-black/5 border-b border-primary/20" 
+          : "border-b border-primary/30"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -56,18 +55,18 @@ export function Navigation() {
             whileTap={{ scale: 0.95 }}
           >
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className={`relative p-2 rounded-xl ${showTransparent ? "bg-white/10 backdrop-blur-sm" : ""}`}>
+            <div className="relative p-2 rounded-xl">
               <img src={logoImg} alt="MOS Logo" className="relative h-10 w-auto" />
             </div>
           </motion.div>
           <div className="hidden sm:flex flex-col leading-none">
             <span 
-              className={`tracking-tight text-lg font-bold transition-colors ${showTransparent ? "text-white" : "text-primary dark:text-foreground"}`} 
+              className="tracking-tight text-lg font-bold text-white transition-colors" 
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              MINING OPTS
+              MINING OPTIMIZATION
             </span>
-            <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors ${showTransparent ? "text-white/70" : "text-muted-foreground"}`}>
+            <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70 transition-colors">
               Solutions Ltd
             </span>
           </div>
@@ -83,15 +82,15 @@ export function Navigation() {
             >
               <span className={`relative z-10 transition-colors ${
                 location === item.href 
-                  ? showTransparent ? "text-white" : "text-primary dark:text-foreground" 
-                  : showTransparent ? "text-white/80 hover:text-white" : "text-foreground/70 dark:text-foreground/70 hover:text-primary dark:hover:text-foreground"
+                  ? "text-white" 
+                  : "text-white/80 hover:text-white"
               }`}>
                 {item.label}
               </span>
               {location === item.href && (
                 <motion.span 
                   layoutId="nav-indicator"
-                  className={`absolute inset-0 rounded-xl ${showTransparent ? "bg-white/10" : "bg-primary/5 dark:bg-foreground/5"}`}
+                  className="absolute inset-0 rounded-xl bg-white/10"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -123,9 +122,9 @@ export function Navigation() {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
-                variant={showTransparent ? "ghost" : "ghost"} 
+                variant="ghost" 
                 size="icon" 
-                className={showTransparent ? "text-white hover:bg-white/10" : ""}
+                className="text-white hover:bg-white/10"
                 data-testid="button-mobile-menu"
               >
                 <Menu className="h-6 w-6" />
