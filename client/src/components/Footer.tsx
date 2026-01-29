@@ -69,7 +69,6 @@ export function Footer() {
               {[
                 { label: "About Us", href: "/about" },
                 { label: "Our Services", href: "/services" },
-                { label: "HSE & ESG", href: "/hse-esg" },
                 { label: "Careers", href: "/careers" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
@@ -100,7 +99,6 @@ export function Footer() {
                 "Mining Technologies",
                 "IT & Enterprise Tech",
                 "Oil & Gas Support",
-                "Environmental & ESG",
               ].map((service) => (
                 <li key={service}>
                   <span className="text-gray-300/80 text-sm">{service}</span>

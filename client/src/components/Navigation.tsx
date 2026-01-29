@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "HSE & ESG", href: "/hse-esg" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
