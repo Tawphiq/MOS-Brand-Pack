@@ -39,10 +39,10 @@ export function Navigation() {
     <motion.header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? "bg-white/95 dark:bg-background/95 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100 dark:border-border" 
+          ? "bg-white/98 dark:bg-background/98 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-200 dark:border-border" 
           : showTransparent
-            ? "bg-transparent border-b border-transparent"
-            : "bg-white/90 dark:bg-background/90 backdrop-blur-lg border-b border-gray-100/50 dark:border-border/50"
+            ? "bg-gradient-to-b from-black/40 via-black/20 to-transparent border-b border-white/10"
+            : "bg-white/95 dark:bg-background/95 backdrop-blur-lg border-b border-gray-200/50 dark:border-border/50"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

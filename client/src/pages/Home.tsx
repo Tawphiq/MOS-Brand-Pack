@@ -5,7 +5,6 @@ import {
   CheckCircle2, 
   Server, 
   Shield, 
-  Cloud, 
   Cpu, 
   Building2, 
   Landmark, 
@@ -13,18 +12,15 @@ import {
   Droplets, 
   Leaf, 
   Users,
-  Sparkles,
   Globe,
   Award,
   Zap,
-  Target,
-  Play
+  Target
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
-import { FloatingShapes } from "@/components/ParticleBackground";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
 import heroImg from "@/assets/images/hero-mining-aerial.png";
@@ -39,6 +35,13 @@ import serviceMiningTechImg from "@/assets/images/mining-tech-control.png";
 import serviceItImg from "@/assets/images/datacenter-futuristic.png";
 import serviceOilGasImg from "@/assets/images/oil-refinery-sunset.png";
 import serviceEsgImg from "@/assets/images/esg-rainforest.png";
+
+import industryMiningImg from "@/assets/images/industry-mining.png";
+import industryOilGasImg from "@/assets/images/industry-oil-gas.png";
+import industryEpcImg from "@/assets/images/industry-epc.png";
+import industryGovernmentImg from "@/assets/images/industry-government.png";
+import industryEnvironmentalImg from "@/assets/images/industry-environmental.png";
+import industryIndustrialImg from "@/assets/images/industry-industrial.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -111,12 +114,12 @@ export default function Home() {
   ];
 
   const markets = [
-    { icon: <Factory className="w-5 h-5" />, name: "Mining & Resources" },
-    { icon: <Droplets className="w-5 h-5" />, name: "Oil & Gas" },
-    { icon: <Building2 className="w-5 h-5" />, name: "EPC Contractors" },
-    { icon: <Landmark className="w-5 h-5" />, name: "Government" },
-    { icon: <Leaf className="w-5 h-5" />, name: "Environmental" },
-    { icon: <Users className="w-5 h-5" />, name: "Industrial" }
+    { icon: <Factory className="w-5 h-5" />, name: "Mining & Resources", image: industryMiningImg },
+    { icon: <Droplets className="w-5 h-5" />, name: "Oil & Gas", image: industryOilGasImg },
+    { icon: <Building2 className="w-5 h-5" />, name: "EPC Contractors", image: industryEpcImg },
+    { icon: <Landmark className="w-5 h-5" />, name: "Government", image: industryGovernmentImg },
+    { icon: <Leaf className="w-5 h-5" />, name: "Environmental", image: industryEnvironmentalImg },
+    { icon: <Users className="w-5 h-5" />, name: "Industrial", image: industryIndustrialImg }
   ];
 
   const stats = [
@@ -138,7 +141,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <motion.div 
           className="absolute inset-0 z-0"
           style={{ opacity: heroOpacity, scale: heroScale }}
@@ -147,149 +150,121 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-gray-900/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/98 via-gray-900/90 to-gray-900/70" />
         </motion.div>
         
-        <FloatingShapes />
+        <div className="absolute inset-0 z-5 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        </div>
 
-        <div className="container-padding relative z-20 flex flex-col lg:flex-row items-center gap-16 py-32">
-          <motion.div 
-            className="flex-1 text-white"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 mb-8"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
-              </span>
-              <span className="text-sm font-medium text-white/90">Engineering, Mining, EPC & Technology</span>
-            </motion.div>
-            
-            <motion.h1 
-              variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-[1.05] tracking-tight"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              <span className="block">Performance.</span>
-              <span className="block">Precision.</span>
-              <span className="block relative">
-                <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
-                  Sustainability.
-                </span>
-                <motion.span 
-                  className="absolute -bottom-2 left-0 h-1.5 bg-gradient-to-r from-accent to-secondary rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: "60%" }}
-                  transition={{ delay: 1, duration: 0.8 }}
-                />
-              </span>
-            </motion.h1>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg md:text-xl text-gray-300/90 mb-12 max-w-xl leading-relaxed"
-            >
-              Full-lifecycle engineering, mining, EPC, technology, and environmental solutions for West Africa's resource sector.
-            </motion.p>
-            
+        <div className="container-padding relative z-20 pt-32 pb-20">
+          <div className="max-w-4xl">
             <motion.div 
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
             >
-              <Link href="/services">
-                <Button 
-                  size="lg" 
-                  className="bg-accent text-white font-semibold group" 
-                  data-testid="button-explore-services"
-                >
-                  Explore Our Services
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white/30 text-white backdrop-blur-sm hover:bg-white/10" 
-                  data-testid="button-contact-hero"
-                >
-                  <Play className="w-5 h-5 mr-2" />
-                  Get in Touch
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:block flex-1 max-w-xl"
-          >
-            <div className="relative">
+              <motion.div
+                variants={itemVariants}
+                className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-10"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <span className="text-sm font-medium text-white/80 tracking-wide">Engineering, Mining, EPC & Technology</span>
+              </motion.div>
+              
+              <motion.h1 
+                variants={itemVariants}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                Delivering Excellence in
+                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400">
+                  Resource Solutions
+                </span>
+              </motion.h1>
+              
+              <motion.p 
+                variants={itemVariants}
+                className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed"
+              >
+                Full-lifecycle engineering, mining, EPC, technology, and environmental solutions 
+                for West Africa's resource sector. Performance. Precision. Sustainability.
+              </motion.p>
+              
               <motion.div 
-                className="absolute -inset-8 bg-gradient-to-r from-accent/40 to-secondary/40 rounded-3xl blur-3xl"
-                animate={{ 
-                  opacity: [0.5, 0.8, 0.5],
-                  scale: [1, 1.05, 1]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
-              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
-                <img 
-                  src={dataCenterImg} 
-                  alt="Data Centre Infrastructure" 
-                  className="w-full aspect-[4/3] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-                
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 p-8"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 1.2 }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-lg">
-                      <Server className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-white text-lg">Enterprise-Grade</div>
-                      <div className="text-gray-300">Data Centre Solutions</div>
-                    </div>
-                  </div>
-                </motion.div>
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 mb-16"
+              >
+                <Link href="/services">
+                  <Button 
+                    size="lg" 
+                    className="bg-accent text-white font-semibold px-8 group" 
+                    data-testid="button-explore-services"
+                  >
+                    Explore Our Services
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-white/20 text-white backdrop-blur-sm bg-white/5 hover:bg-white/10 px-8" 
+                    data-testid="button-contact-hero"
+                  >
+                    Contact Us
+                  </Button>
+                </Link>
+              </motion.div>
 
-                <motion.div
-                  className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3"
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 1.4 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-white text-sm font-medium">Live Operations</span>
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-wrap items-center gap-8 pt-8 border-t border-white/10"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Globe className="w-5 h-5 text-accent" />
                   </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
+                  <div>
+                    <div className="text-2xl font-bold text-white">6+</div>
+                    <div className="text-sm text-gray-400">Countries</div>
+                  </div>
+                </div>
+                <div className="w-px h-12 bg-white/10 hidden sm:block" />
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Award className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-white">100+</div>
+                    <div className="text-sm text-gray-400">Projects</div>
+                  </div>
+                </div>
+                <div className="w-px h-12 bg-white/10 hidden sm:block" />
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-white">24/7</div>
+                    <div className="text-sm text-gray-400">Support</div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
         <motion.div 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+          <div className="w-7 h-11 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
             <motion.div 
-              className="w-1.5 h-3 bg-white/50 rounded-full"
-              animate={{ y: [0, 12, 0] }}
+              className="w-1 h-2.5 bg-white/40 rounded-full"
+              animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
           </div>
@@ -496,7 +471,7 @@ export default function Home() {
       </section>
 
       {/* Markets Section */}
-      <section className="py-20 bg-gray-50 dark:bg-card">
+      <section className="py-24 bg-gray-50 dark:bg-card">
         <div className="container-padding">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
@@ -504,26 +479,41 @@ export default function Home() {
               Market Focus
               <span className="w-10 h-0.5 bg-accent rounded-full" />
             </span>
-            <h2 className="text-primary dark:text-foreground text-3xl md:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-primary dark:text-foreground text-3xl md:text-4xl mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               Industries We Serve
             </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Delivering specialized solutions across key sectors in West Africa's growing economy
+            </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {markets.map((market, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="group"
               >
-                <div className="flex flex-col items-center p-8 rounded-2xl bg-white dark:bg-background shadow-sm border border-gray-100 dark:border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300" data-testid={`card-market-${i}`}>
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
-                    {market.icon}
+                <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1" data-testid={`card-market-${i}`}>
+                  <img 
+                    src={market.image} 
+                    alt={market.name}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-gray-900/20" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                        {market.icon}
+                      </div>
+                      <h3 className="text-lg font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
+                        {market.name}
+                      </h3>
+                    </div>
                   </div>
-                  <span className="text-sm font-semibold text-center text-foreground">{market.name}</span>
                 </div>
               </motion.div>
             ))}
