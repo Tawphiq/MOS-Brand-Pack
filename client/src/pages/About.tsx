@@ -50,16 +50,16 @@ export default function About() {
 
   return (
     <div className="min-h-screen">
-      <div className="relative h-[60vh] min-h-[500px] overflow-hidden -mt-20 sm:-mt-24 pt-20 sm:pt-24">
+      <div className="relative h-[60vh] min-h-[500px] overflow-hidden pt-20 sm:pt-24">
         <motion.img 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
           src={aboutCorporateImg} 
           alt="MOS Engineering Team - Professional Mining Engineers" 
-          className="absolute inset-x-0 top-[-80px] bottom-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-x-0 top-[-80px] bottom-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container-padding text-center text-white relative z-10">
             <motion.div

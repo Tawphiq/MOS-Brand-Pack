@@ -18,23 +18,16 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
-  const isHomePage = location === "/";
-
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // On homepage, become solid after scrolling 100px
-      const threshold = isHomePage ? 100 : 20;
-      setScrolled(scrollY > threshold);
+      setScrolled(window.scrollY > 80);
     };
-    
     handleScroll();
-    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomePage]);
+  }, []);
 
-  const showSolidBg = scrolled || !isHomePage;
+  const showSolidBg = scrolled;
 
   return (
     <header 
