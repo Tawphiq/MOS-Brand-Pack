@@ -145,131 +145,71 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      {/* Hero Section - Clean Professional Design */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden -mt-20 sm:-mt-24">
-        {/* Background Image with Parallax */}
-        <motion.div 
-          className="absolute inset-0 z-0"
-          style={{ opacity: heroOpacity, scale: heroScale }}
-        >
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImg})` }}
-          />
-          {/* Professional dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/50 to-gray-900/80" />
-        </motion.div>
+      {/* Hero Section - Clean Minimal Design */}
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden -mt-20 sm:-mt-24">
+        {/* Background with subtle gradient */}
+        <div className="absolute inset-0 z-0 bg-primary">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-gray-900" />
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        </div>
 
         {/* Main Content */}
-        <div className="container-padding relative z-20 pt-32 sm:pt-40 pb-24">
-          <div className="max-w-5xl">
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="space-y-8"
+        <div className="container-padding relative z-20 text-center">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto"
+          >
+            {/* Main Headline */}
+            <motion.h1 
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-white mb-6"
+              style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
+              data-testid="heading-hero"
             >
-              {/* Small Tagline */}
-              <motion.div variants={itemVariants}>
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-white/90 text-sm font-medium tracking-wide">
-                    West Africa's Premier Resource Partner
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Main Headline */}
-              <motion.h1 
-                variants={itemVariants}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white"
-                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
-                data-testid="heading-hero"
-              >
-                Powering Africa's{" "}
-                <span className="text-accent">Resource Future</span>
-              </motion.h1>
-              
-              {/* Description */}
-              <motion.p 
-                variants={itemVariants}
-                className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed"
-              >
-                End-to-end engineering, mining operations, and environmental solutions. 
-                Trusted by industry leaders across Ghana and West Africa.
-              </motion.p>
-              
-              {/* CTA Buttons */}
-              <motion.div 
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 pt-4"
-              >
-                <Link href="/services">
-                  <Button 
-                    size="lg" 
-                    className="bg-accent border-accent-border text-white font-medium group px-8" 
-                    data-testid="button-explore-services"
-                  >
-                    Explore Our Services
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-white/30 text-white backdrop-blur-sm bg-white/5 font-medium px-8" 
-                    data-testid="button-contact-hero"
-                  >
-                    Request a Quote
-                  </Button>
-                </Link>
-              </motion.div>
-
-              {/* Quick Stats Row */}
-              <motion.div 
-                variants={itemVariants}
-                className="flex flex-wrap gap-x-10 gap-y-4 pt-8 border-t border-white/10 mt-8"
-              >
-                {[
-                  { value: "6+", label: "Countries" },
-                  { value: "100+", label: "Projects" },
-                  { value: "30%", label: "Efficiency Gain" }
-                ].map((stat, i) => (
-                  <div key={i} className="flex items-baseline gap-2">
-                    <span className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
-                      {stat.value}
-                    </span>
-                    <span className="text-white/60 text-sm">{stat.label}</span>
-                  </div>
-                ))}
-              </motion.div>
+              Powering Africa's{" "}
+              <span className="text-accent">Resource Future</span>
+            </motion.h1>
+            
+            {/* Description */}
+            <motion.p 
+              variants={itemVariants}
+              className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-10"
+            >
+              Engineering, mining, and environmental solutions across West Africa.
+            </motion.p>
+            
+            {/* CTA Buttons */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Link href="/services">
+                <Button 
+                  size="lg" 
+                  className="bg-accent border-accent-border text-white font-medium px-8" 
+                  data-testid="button-explore-services"
+                >
+                  Explore Services
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-white/20 text-white bg-white/5 font-medium px-8" 
+                  data-testid="button-contact-hero"
+                >
+                  Get in Touch
+                </Button>
+              </Link>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
-
-        {/* Subtle scroll indicator */}
-        <motion.div 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5 }}
-        >
-          <motion.div 
-            className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <motion.div 
-              className="w-0.5 h-1.5 bg-white/50 rounded-full"
-              animate={{ y: [0, 6, 0], opacity: [0.5, 0.2, 0.5] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
-        </motion.div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
       </section>
 
       {/* Stats Section */}
