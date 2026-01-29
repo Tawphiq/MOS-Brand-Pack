@@ -23,7 +23,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
-import heroImg from "@/assets/images/hero-mining-aerial.png";
+import heroImg from "@/assets/images/hero-mining-dramatic.png";
 import dataCenterImg from "@/assets/images/datacenter-futuristic.png";
 import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
 import partnerRamjack from "@/assets/images/partner-ramjack.png";
@@ -142,64 +142,95 @@ export default function Home() {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image with Parallax */}
         <motion.div 
           className="absolute inset-0 z-0"
           style={{ opacity: heroOpacity, scale: heroScale }}
         >
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
             style={{ backgroundImage: `url(${heroImg})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/98 via-gray-900/90 to-gray-900/70" />
+          {/* Multi-layer gradient for depth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-gray-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-transparent to-transparent" />
         </motion.div>
         
-        <div className="absolute inset-0 z-5 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        {/* Subtle animated accent glow */}
+        <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+          <motion.div 
+            className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px]"
+            animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"
+            animate={{ opacity: [0.4, 0.6, 0.4], scale: [1, 1.05, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
         </div>
 
-        <div className="container-padding relative z-20 pt-32 pb-20">
-          <div className="max-w-4xl">
+        {/* Main Content */}
+        <div className="container-padding relative z-20 pt-28 pb-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left Column - Main Content */}
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
+              {/* Tagline Badge */}
               <motion.div
                 variants={itemVariants}
-                className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2.5 mb-10"
+                className="inline-flex items-center gap-2 mb-8"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                <span className="text-sm font-medium text-white/80 tracking-wide">Engineering, Mining, EPC & Technology</span>
+                <span className="h-px w-8 bg-accent" />
+                <span className="text-accent font-semibold tracking-[0.2em] text-xs uppercase">
+                  West Africa's Resource Partner
+                </span>
               </motion.div>
               
+              {/* Main Headline */}
               <motion.h1 
                 variants={itemVariants}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white"
-                style={{ fontFamily: 'var(--font-heading)' }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold mb-6 leading-[1.05] text-white"
+                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
               >
-                Delivering Excellence in
-                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400">
-                  Resource Solutions
+                Performance.
+                <br />
+                Precision.
+                <br />
+                <span className="relative inline-block">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-300">
+                    Sustainability.
+                  </span>
+                  <motion.span 
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-accent to-orange-400 rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  />
                 </span>
               </motion.h1>
               
+              {/* Description */}
               <motion.p 
                 variants={itemVariants}
-                className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-300/90 mb-10 max-w-xl leading-relaxed"
               >
-                Full-lifecycle engineering, mining, EPC, technology, and environmental solutions 
-                for West Africa's resource sector. Performance. Precision. Sustainability.
+                Full-lifecycle engineering, mining, EPC, technology, and environmental 
+                solutions for the resource sector across Ghana and West Africa.
               </motion.p>
               
+              {/* CTA Buttons */}
               <motion.div 
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 mb-16"
+                className="flex flex-col sm:flex-row gap-4 mb-12"
               >
                 <Link href="/services">
                   <Button 
                     size="lg" 
-                    className="bg-accent text-white font-semibold px-8 group" 
+                    className="bg-accent text-white font-semibold px-8 h-14 text-base group shadow-lg shadow-accent/20" 
                     data-testid="button-explore-services"
                   >
                     Explore Our Services
@@ -210,64 +241,130 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-white/20 text-white backdrop-blur-sm bg-white/5 hover:bg-white/10 px-8" 
+                    className="border-white/20 text-white backdrop-blur-sm bg-white/5 hover:bg-white/10 px-8 h-14 text-base" 
                     data-testid="button-contact-hero"
                   >
-                    Contact Us
+                    Get a Quote
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
               </motion.div>
 
+              {/* Trust Indicators */}
               <motion.div 
                 variants={itemVariants}
-                className="flex flex-wrap items-center gap-8 pt-8 border-t border-white/10"
+                className="flex flex-wrap items-center gap-6 text-sm text-gray-400"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-white">6+</div>
-                    <div className="text-sm text-gray-400">Countries</div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary" />
+                  <span>ISO Certified</span>
                 </div>
-                <div className="w-px h-12 bg-white/10 hidden sm:block" />
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Award className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-white">100+</div>
-                    <div className="text-sm text-gray-400">Projects</div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary" />
+                  <span>24/7 Operations</span>
                 </div>
-                <div className="w-px h-12 bg-white/10 hidden sm:block" />
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-white">24/7</div>
-                    <div className="text-sm text-gray-400">Support</div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary" />
+                  <span>ESG Aligned</span>
                 </div>
               </motion.div>
+            </motion.div>
+
+            {/* Right Column - Feature Cards */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="hidden lg:block relative"
+            >
+              {/* Floating Stats Cards */}
+              <div className="relative">
+                {/* Main Card */}
+                <motion.div 
+                  className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl"
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-start gap-6 mb-8">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-lg shadow-accent/30">
+                      <Factory className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-bold text-xl mb-1" style={{ fontFamily: 'var(--font-heading)' }}>Integrated Solutions</h3>
+                      <p className="text-gray-400 text-sm">End-to-end resource sector services</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                      <div className="text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>6+</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider">Countries</div>
+                    </div>
+                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                      <div className="text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>100+</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider">Projects</div>
+                    </div>
+                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                      <div className="text-3xl font-bold text-accent mb-1" style={{ fontFamily: 'var(--font-heading)' }}>2019</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider">Established</div>
+                    </div>
+                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
+                      <div className="text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>24/7</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider">Support</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Badge - Top Right */}
+                <motion.div 
+                  className="absolute -top-4 -right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
+                  initial={{ scale: 0, rotate: -10 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: 1, duration: 0.5, type: "spring" }}
+                >
+                  Ghana-Based
+                </motion.div>
+
+                {/* Service Pills - Bottom */}
+                <motion.div 
+                  className="absolute -bottom-6 left-4 right-4 flex flex-wrap gap-2 justify-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2, duration: 0.5 }}
+                >
+                  {['Mining', 'EPC', 'Technology', 'ESG'].map((service, i) => (
+                    <span 
+                      key={service}
+                      className="bg-white/10 backdrop-blur-sm border border-white/10 text-white/80 px-3 py-1.5 rounded-full text-xs font-medium"
+                    >
+                      {service}
+                    </span>
+                  ))}
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
 
+        {/* Scroll Indicator */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
         >
-          <div className="w-7 h-11 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
+          <span className="text-xs text-gray-400 uppercase tracking-widest">Scroll</span>
+          <motion.div 
+            className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-2"
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
             <motion.div 
-              className="w-1 h-2.5 bg-white/40 rounded-full"
-              animate={{ y: [0, 10, 0] }}
+              className="w-1 h-2 bg-accent rounded-full"
+              animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
