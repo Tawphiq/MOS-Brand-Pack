@@ -37,15 +37,12 @@ export function Navigation() {
   const showSolidBg = scrolled || !isHomePage;
 
   return (
-    <motion.header 
+    <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         showSolidBg 
           ? "bg-primary shadow-lg shadow-black/10" 
           : "bg-transparent"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div className="container-padding flex h-20 sm:h-24 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 group" data-testid="link-logo">
@@ -179,6 +176,6 @@ export function Navigation() {
           </Sheet>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
