@@ -1,15 +1,14 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
-import { useSubmitContact } from "@/hooks/use-contact";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
-  const mutation = useSubmitContact();
+  const { toast } = useToast();
   
   const form = useForm<InsertContactMessage>({
     resolver: zodResolver(insertContactMessageSchema),
@@ -22,9 +21,32 @@ export function ContactForm() {
   });
 
   const onSubmit = (data: InsertContactMessage) => {
-    mutation.mutate(data, {
-      onSuccess: () => form.reset(),
+    // Format message for WhatsApp
+    const whatsappMessage = `*Message From MOS*\n\n` +
+      `*Name:* ${data.name}\n` +
+      `*Email:* ${data.email}\n` +
+      `*Subject:* ${data.subject}\n\n` +
+      `*Message:*\n${data.message}`;
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // WhatsApp phone number: +233 24 473 4616
+    // Format: remove spaces and + sign for wa.me URL
+    const phoneNumber = "233244734616";
+    
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message and reset form
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your message is being prepared. Please send it through WhatsApp.",
+      variant: "default",
     });
+    
+    form.reset();
   };
 
   return (
@@ -92,16 +114,8 @@ export function ContactForm() {
           <Button 
             type="submit" 
             className="w-full bg-accent hover:bg-accent/90 text-white py-6 text-lg"
-            disabled={mutation.isPending}
           >
-            {mutation.isPending ? (
-              <>
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              "Send Message"
-            )}
+            Send Message
           </Button>
         </form>
       </Form>

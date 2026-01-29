@@ -21,7 +21,9 @@ export async function registerRoutes(
           field: err.errors[0].path.join('.'),
         });
       }
-      res.status(500).json({ message: "Internal server error" });
+      console.error('Error in contact form submission:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Internal server error';
+      res.status(500).json({ message: errorMessage });
     }
   });
 

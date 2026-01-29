@@ -170,35 +170,27 @@ export default function Contact() {
                       {errors.name && <p className="text-xs text-destructive mt-1">{errors.name.message}</p>}
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">Company</label>
+                      <label className="text-sm font-medium text-foreground mb-2 block">Email Address *</label>
                       <Input 
-                        placeholder="Your company" 
-                        {...register("company")}
-                        data-testid="input-company"
+                        type="email" 
+                        placeholder="email@example.com" 
+                        {...register("email")}
+                        className={errors.email ? "border-destructive" : ""}
+                        data-testid="input-email"
                       />
+                      {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
                     </div>
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">Email Address *</label>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Subject *</label>
                     <Input 
-                      type="email" 
-                      placeholder="email@example.com" 
-                      {...register("email")}
-                      className={errors.email ? "border-destructive" : ""}
-                      data-testid="input-email"
+                      placeholder="Inquiry about Contract Mining" 
+                      {...register("subject")}
+                      className={errors.subject ? "border-destructive" : ""}
+                      data-testid="input-subject"
                     />
-                    {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
-                  </div>
-                  
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">Phone Number</label>
-                    <Input 
-                      type="tel" 
-                      placeholder="+233 XX XXX XXXX" 
-                      {...register("phone")}
-                      data-testid="input-phone"
-                    />
+                    {errors.subject && <p className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
                   </div>
                   
                   <div>

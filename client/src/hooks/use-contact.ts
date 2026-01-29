@@ -45,30 +45,50 @@ export function useSubmitContact() {
 }
 
 export function useContact() {
-  const mutation = useSubmitContact();
+  const { toast } = useToast();
   
   const form = useForm<InsertContactMessage>({
     resolver: zodResolver(insertContactMessageSchema),
     defaultValues: {
       name: "",
       email: "",
-      company: "",
-      phone: "",
+      subject: "",
       message: "",
     },
   });
 
   const onSubmit = (data: InsertContactMessage) => {
-    mutation.mutate(data, {
-      onSuccess: () => {
-        form.reset();
-      },
+    // Format message for WhatsApp
+    const whatsappMessage = `*New Contact Form Submission*\n\n` +
+      `*Name:* ${data.name}\n` +
+      `*Email:* ${data.email}\n` +
+      `*Subject:* ${data.subject}\n\n` +
+      `*Message:*\n${data.message}`;
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // WhatsApp phone number: +233 24 473 4616
+    // Format: remove spaces and + sign for wa.me URL
+    const phoneNumber = "233244734616";
+    
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message and reset form
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your message is being prepared. Please send it through WhatsApp.",
+      variant: "default",
     });
+    
+    form.reset();
   };
 
   return {
     form,
     onSubmit,
-    isPending: mutation.isPending,
+    isPending: false, // No API call, so no pending state
   };
 }
