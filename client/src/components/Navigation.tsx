@@ -45,7 +45,7 @@ export function Navigation() {
               className="tracking-tight text-lg sm:text-xl font-bold text-white transition-colors" 
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              MINING OPTIMIZATION
+              MINING OPTIMISATION
             </span>
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/95 transition-colors">
               Solutions Ltd
@@ -120,7 +120,7 @@ export function Navigation() {
                   <div className="flex items-center gap-3">
                     <img src={logoImg} alt="MOS Logo" className="h-14 w-auto" />
                     <div className="flex flex-col leading-none gap-0.5">
-                      <span className="text-base font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
+                      <span className="text-base font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTIMISATION</span>
                       <span className="text-xs font-semibold text-foreground/90 tracking-[0.2em] uppercase">SOLUTIONS LTD</span>
                     </div>
                   </div>

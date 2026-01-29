@@ -89,7 +89,7 @@ export function Footer() {
                 <img src={logoImg} alt="MOS Logo" className="h-14 w-auto md:h-16" />
               </div>
               <div className="flex flex-col leading-none gap-0.5">
-                <span className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
+                <span className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTIMISATION</span>
                 <span className="text-xs font-semibold text-gray-300 tracking-[0.2em] uppercase">Solutions Ltd</span>
               </div>
             </div>
