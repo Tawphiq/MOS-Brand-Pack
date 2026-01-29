@@ -85,7 +85,11 @@ export function Navigation() {
           ))}
           
           <div className="flex items-center gap-2 ml-4">
-            <Link href="/contact">
+            <a
+              href="https://wa.me/233244734616"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button 
                 className="bg-accent text-white font-semibold px-6" 
                 data-testid="button-get-quote"
@@ -93,7 +97,7 @@ export function Navigation() {
                 Get a Quote
                 <ChevronRight className="ml-1 w-4 h-4" />
               </Button>
-            </Link>
+            </a>
           </div>
         </nav>
 
@@ -148,12 +152,17 @@ export function Navigation() {
                 </nav>
                 
                 <div className="p-6 border-t border-gray-100">
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  <a
+                    href="https://wa.me/233244734616"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                  >
                     <Button size="lg" className="w-full bg-accent" data-testid="button-mobile-get-quote">
                       Get a Quote
                       <ChevronRight className="ml-1 w-4 h-4" />
                     </Button>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </SheetContent>
