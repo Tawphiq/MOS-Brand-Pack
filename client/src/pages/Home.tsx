@@ -29,12 +29,8 @@ import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
 
 // Partner logos
 import logoAsanteGold from "@assets/iduapriem_1769656481085.jpg";
-import logoMTN from "@assets/mtn_1769656481087.jpg";
-import logoBankOfGhana from "@assets/omnibsic_1769656481089.png";
-import logoOmniBSIC from "@assets/adb-bank_1769656481090.jpg";
 import logoAngloGold from "@assets/anglogold_1769656481091.png";
 import logoGoldFields from "@assets/asante-gold_1769656481092.jpg";
-import logoADB from "@assets/bank-of-ghana_1769656481093.png";
 import logoWestcon from "@assets/ramjack-logo_1769656504256.png";
 import logoCrowdstrike from "@assets/westcon-logo_1769656504257.png";
 import logoRamjack from "@assets/RamJack_logo_(1)_1769656621043.png";
@@ -140,12 +136,8 @@ export default function Home() {
 
   const logos = [
     { src: logoAsanteGold, alt: "Asante Gold Corporation" },
-    { src: logoMTN, alt: "MTN" },
-    { src: logoBankOfGhana, alt: "Bank of Ghana" },
-    { src: logoOmniBSIC, alt: "OmniBSIC Bank" },
     { src: logoAngloGold, alt: "AngloGold Ashanti" },
     { src: logoGoldFields, alt: "Gold Fields" },
-    { src: logoADB, alt: "Agricultural Development Bank" },
     { src: logoWestcon, alt: "Westcon-Comstor" },
     { src: logoCrowdstrike, alt: "CrowdStrike" },
     { src: logoRamjack, alt: "Ramjack Technology Solutions" }
