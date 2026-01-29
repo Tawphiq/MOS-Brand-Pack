@@ -197,16 +197,20 @@ export default function Home() {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Link href="/contact">
+              <a 
+                href="https://wa.me/233244734616" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <Button 
                   size="lg" 
                   variant="ghost"
                   className="text-white font-semibold px-7"
                   data-testid="button-contact-hero"
                 >
-                  Contact Us
+                  Chat with Us
                 </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
