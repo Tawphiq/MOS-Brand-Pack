@@ -164,9 +164,9 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})` }}
           />
-          {/* Professional dark overlay with subtle gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/85 to-gray-900/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-gray-900/40" />
+          {/* Dark wash overlay - lighter to show more of the background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-gray-900/20" />
         </motion.div>
         
         {/* Subtle geometric pattern overlay */}
@@ -174,178 +174,66 @@ export default function Home() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }} />
 
-        {/* Main Content */}
+        {/* Main Content - Simplified and centered */}
         <div className="container-padding relative z-20 pt-32 pb-28">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              {/* Left Column - Main Content */}
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="lg:col-span-7"
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {/* Main Headline - Clean, impactful typography */}
+              <motion.h1 
+                variants={itemVariants}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-white"
+                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.025em' }}
+                data-testid="heading-hero"
               >
-                {/* Tagline Badge */}
-                <motion.div
-                  variants={itemVariants}
-                  className="inline-flex items-center gap-3 mb-8"
-                >
-                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2" data-testid="badge-tagline">
-                    <Globe className="w-4 h-4 text-accent" />
-                    <span className="text-white/90 font-medium text-sm" data-testid="text-tagline">
-                      West Africa's Premier Resource Partner
-                    </span>
-                  </div>
-                </motion.div>
-                
-                {/* Main Headline - Clean, impactful typography */}
-                <motion.h1 
-                  variants={itemVariants}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white"
-                  style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.025em' }}
-                  data-testid="heading-hero"
-                >
-                  Powering Africa's
-                  <br />
-                  <span className="relative">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400">
-                      Resource Future
-                    </span>
+                Powering Africa's
+                <br />
+                <span className="relative">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400">
+                    Resource Future
                   </span>
-                </motion.h1>
-                
-                {/* Description - Professional copywriting */}
-                <motion.p 
-                  variants={itemVariants}
-                  className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed"
-                >
-                  End-to-end engineering, mining operations, EPC project delivery, technology integration, 
-                  and environmental solutions. Trusted by industry leaders across Ghana and West Africa.
-                </motion.p>
-                
-                {/* CTA Buttons - Clean, professional styling */}
-                <motion.div 
-                  variants={itemVariants}
-                  className="flex flex-col sm:flex-row gap-4 mb-14"
-                >
-                  <Link href="/services">
-                    <Button 
-                      size="lg" 
-                      className="bg-accent text-white font-semibold group shadow-xl shadow-accent/25" 
-                      data-testid="button-explore-services"
-                    >
-                      Explore Our Services
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                  <Link href="/contact">
-                    <Button 
-                      size="lg" 
-                      variant="outline" 
-                      className="border-white/30 text-white backdrop-blur-sm bg-white/5" 
-                      data-testid="button-contact-hero"
-                    >
-                      Request a Quote
-                    </Button>
-                  </Link>
-                </motion.div>
-
-                {/* Trust Indicators - Professional badges */}
-                <motion.div 
-                  variants={itemVariants}
-                  className="flex flex-wrap items-center gap-8"
-                >
-                  <div className="flex items-center gap-3" data-testid="trust-indicator-iso">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                      <Shield className="w-5 h-5 text-secondary" />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm" data-testid="text-iso-certified">ISO Certified</div>
-                      <div className="text-gray-400 text-xs">Quality Assured</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3" data-testid="trust-indicator-operations">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                      <Zap className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm" data-testid="text-operations">24/7 Operations</div>
-                      <div className="text-gray-400 text-xs">Always Available</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3" data-testid="trust-indicator-esg">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                      <Leaf className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm" data-testid="text-esg-aligned">ESG Aligned</div>
-                      <div className="text-gray-400 text-xs">Sustainable Practices</div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Right Column - Stats Grid */}
-              <motion.div 
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="lg:col-span-5 hidden lg:block"
+                </span>
+              </motion.h1>
+              
+              {/* Description - Concise */}
+              <motion.p 
+                variants={itemVariants}
+                className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed"
               >
-                <div className="relative">
-                  {/* Stats Card - Clean glassmorphism */}
-                  <div className="bg-white/[0.08] backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-2xl">
-                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-lg">
-                        <Factory className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
-                          Integrated Solutions
-                        </h3>
-                        <p className="text-gray-400 text-sm">Full-lifecycle resource services</p>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-6">
-                      <div className="text-center p-4 rounded-xl bg-white/5">
-                        <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>6+</div>
-                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Countries</div>
-                      </div>
-                      <div className="text-center p-4 rounded-xl bg-white/5">
-                        <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>100+</div>
-                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Projects</div>
-                      </div>
-                      <div className="text-center p-4 rounded-xl bg-white/5">
-                        <div className="text-4xl font-bold text-accent mb-1" style={{ fontFamily: 'var(--font-heading)' }}>2019</div>
-                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Established</div>
-                      </div>
-                      <div className="text-center p-4 rounded-xl bg-white/5">
-                        <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>30%</div>
-                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Efficiency Gain</div>
-                      </div>
-                    </div>
-
-                    {/* Service Tags */}
-                    <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-white/10">
-                      {['Mining Operations', 'EPC', 'Technology', 'ESG'].map((service) => (
-                        <span 
-                          key={service}
-                          className="bg-white/5 border border-white/10 text-white/70 px-3 py-1.5 rounded-lg text-xs font-medium"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Floating accent element */}
-                  <div className="absolute -top-3 -right-3 bg-secondary text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
-                    Ghana-Based
-                  </div>
-                </div>
+                End-to-end engineering, mining operations, and environmental solutions. 
+                Trusted by industry leaders across Ghana and West Africa.
+              </motion.p>
+              
+              {/* CTA Buttons - Clean, professional styling */}
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Link href="/services">
+                  <Button 
+                    size="lg" 
+                    className="bg-accent text-white font-semibold group shadow-xl shadow-accent/25" 
+                    data-testid="button-explore-services"
+                  >
+                    Explore Our Services
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-white/30 text-white backdrop-blur-sm bg-white/5" 
+                    data-testid="button-contact-hero"
+                  >
+                    Request a Quote
+                  </Button>
+                </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
