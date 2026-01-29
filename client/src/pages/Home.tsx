@@ -26,9 +26,18 @@ import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import heroImg from "@/assets/images/hero-mining-dramatic.png";
 import dataCenterImg from "@/assets/images/datacenter-futuristic.png";
 import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
-import partnerRamjack from "@/assets/images/partner-ramjack.png";
-import partnerWestcon from "@/assets/images/partner-westcon.png";
-import partnerCrowdstrike from "@/assets/images/partner-crowdstrike.png";
+
+// Partner logos
+import logoAsanteGold from "@assets/iduapriem_1769656481085.jpg";
+import logoMTN from "@assets/mtn_1769656481087.jpg";
+import logoBankOfGhana from "@assets/omnibsic_1769656481089.png";
+import logoOmniBSIC from "@assets/adb-bank_1769656481090.jpg";
+import logoAngloGold from "@assets/anglogold_1769656481091.png";
+import logoGoldFields from "@assets/asante-gold_1769656481092.jpg";
+import logoADB from "@assets/bank-of-ghana_1769656481093.png";
+import logoWestcon from "@assets/ramjack-logo_1769656504256.png";
+import logoCrowdstrike from "@assets/westcon-logo_1769656504257.png";
+import logoRamjack from "@assets/RamJack_logo_(1)_1769656621043.png";
 import serviceMiningImg from "@/assets/images/mining-fleet-operations.png";
 import serviceEpcImg from "@/assets/images/epc-megaproject.png";
 import serviceMiningTechImg from "@/assets/images/mining-tech-control.png";
@@ -130,17 +139,21 @@ export default function Home() {
   ];
 
   const logos = [
-    { src: partnerRamjack, alt: "Ramjack" },
-    { src: partnerWestcon, alt: "Westcon-Comstor" },
-    { src: partnerCrowdstrike, alt: "CrowdStrike" },
-    { src: partnerRamjack, alt: "Ramjack" },
-    { src: partnerWestcon, alt: "Westcon-Comstor" },
-    { src: partnerCrowdstrike, alt: "CrowdStrike" }
+    { src: logoAsanteGold, alt: "Asante Gold Corporation" },
+    { src: logoMTN, alt: "MTN" },
+    { src: logoBankOfGhana, alt: "Bank of Ghana" },
+    { src: logoOmniBSIC, alt: "OmniBSIC Bank" },
+    { src: logoAngloGold, alt: "AngloGold Ashanti" },
+    { src: logoGoldFields, alt: "Gold Fields" },
+    { src: logoADB, alt: "Agricultural Development Bank" },
+    { src: logoWestcon, alt: "Westcon-Comstor" },
+    { src: logoCrowdstrike, alt: "CrowdStrike" },
+    { src: logoRamjack, alt: "Ramjack Technology Solutions" }
   ];
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section - Professional Industry Standard Design */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image with Parallax */}
         <motion.div 
@@ -148,203 +161,196 @@ export default function Home() {
           style={{ opacity: heroOpacity, scale: heroScale }}
         >
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})` }}
           />
-          {/* Multi-layer gradient for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-gray-900/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-transparent to-transparent" />
+          {/* Professional dark overlay with subtle gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/85 to-gray-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-gray-900/40" />
         </motion.div>
         
-        {/* Subtle animated accent glow */}
-        <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-          <motion.div 
-            className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px]"
-            animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"
-            animate={{ opacity: [0.4, 0.6, 0.4], scale: [1, 1.05, 1] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          />
-        </div>
+        {/* Subtle geometric pattern overlay */}
+        <div className="absolute inset-0 z-[1] opacity-[0.02]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
 
         {/* Main Content */}
-        <div className="container-padding relative z-20 pt-28 pb-24">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left Column - Main Content */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {/* Tagline Badge */}
-              <motion.div
-                variants={itemVariants}
-                className="inline-flex items-center gap-2 mb-8"
-              >
-                <span className="h-px w-8 bg-accent" />
-                <span className="text-accent font-semibold tracking-[0.2em] text-xs uppercase">
-                  West Africa's Resource Partner
-                </span>
-              </motion.div>
-              
-              {/* Main Headline */}
-              <motion.h1 
-                variants={itemVariants}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold mb-6 leading-[1.05] text-white"
-                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.02em' }}
-              >
-                Performance.
-                <br />
-                Precision.
-                <br />
-                <span className="relative inline-block">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-300">
-                    Sustainability.
-                  </span>
-                  <motion.span 
-                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-accent to-orange-400 rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </span>
-              </motion.h1>
-              
-              {/* Description */}
-              <motion.p 
-                variants={itemVariants}
-                className="text-lg md:text-xl text-gray-300/90 mb-10 max-w-xl leading-relaxed"
-              >
-                Full-lifecycle engineering, mining, EPC, technology, and environmental 
-                solutions for the resource sector across Ghana and West Africa.
-              </motion.p>
-              
-              {/* CTA Buttons */}
+        <div className="container-padding relative z-20 pt-32 pb-28">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              {/* Left Column - Main Content */}
               <motion.div 
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 mb-12"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="lg:col-span-7"
               >
-                <Link href="/services">
-                  <Button 
-                    size="lg" 
-                    className="bg-accent text-white font-semibold px-8 h-14 text-base group shadow-lg shadow-accent/20" 
-                    data-testid="button-explore-services"
-                  >
-                    Explore Our Services
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="border-white/20 text-white backdrop-blur-sm bg-white/5 hover:bg-white/10 px-8 h-14 text-base" 
-                    data-testid="button-contact-hero"
-                  >
-                    Get a Quote
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-              </motion.div>
-
-              {/* Trust Indicators */}
-              <motion.div 
-                variants={itemVariants}
-                className="flex flex-wrap items-center gap-6 text-sm text-gray-400"
-              >
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-secondary" />
-                  <span>ISO Certified</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-secondary" />
-                  <span>24/7 Operations</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-secondary" />
-                  <span>ESG Aligned</span>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Column - Feature Cards */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden lg:block relative"
-            >
-              {/* Floating Stats Cards */}
-              <div className="relative">
-                {/* Main Card */}
-                <motion.div 
-                  className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-2xl"
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3 }}
+                {/* Tagline Badge */}
+                <motion.div
+                  variants={itemVariants}
+                  className="inline-flex items-center gap-3 mb-8"
                 >
-                  <div className="flex items-start gap-6 mb-8">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-lg shadow-accent/30">
-                      <Factory className="w-8 h-8 text-white" />
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2" data-testid="badge-tagline">
+                    <Globe className="w-4 h-4 text-accent" />
+                    <span className="text-white/90 font-medium text-sm" data-testid="text-tagline">
+                      West Africa's Premier Resource Partner
+                    </span>
+                  </div>
+                </motion.div>
+                
+                {/* Main Headline - Clean, impactful typography */}
+                <motion.h1 
+                  variants={itemVariants}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] text-white"
+                  style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.025em' }}
+                  data-testid="heading-hero"
+                >
+                  Powering Africa's
+                  <br />
+                  <span className="relative">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400">
+                      Resource Future
+                    </span>
+                  </span>
+                </motion.h1>
+                
+                {/* Description - Professional copywriting */}
+                <motion.p 
+                  variants={itemVariants}
+                  className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed"
+                >
+                  End-to-end engineering, mining operations, EPC project delivery, technology integration, 
+                  and environmental solutions. Trusted by industry leaders across Ghana and West Africa.
+                </motion.p>
+                
+                {/* CTA Buttons - Clean, professional styling */}
+                <motion.div 
+                  variants={itemVariants}
+                  className="flex flex-col sm:flex-row gap-4 mb-14"
+                >
+                  <Link href="/services">
+                    <Button 
+                      size="lg" 
+                      className="bg-accent text-white font-semibold group shadow-xl shadow-accent/25" 
+                      data-testid="button-explore-services"
+                    >
+                      Explore Our Services
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button 
+                      size="lg" 
+                      variant="outline" 
+                      className="border-white/30 text-white backdrop-blur-sm bg-white/5" 
+                      data-testid="button-contact-hero"
+                    >
+                      Request a Quote
+                    </Button>
+                  </Link>
+                </motion.div>
+
+                {/* Trust Indicators - Professional badges */}
+                <motion.div 
+                  variants={itemVariants}
+                  className="flex flex-wrap items-center gap-8"
+                >
+                  <div className="flex items-center gap-3" data-testid="trust-indicator-iso">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                      <Shield className="w-5 h-5 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-xl mb-1" style={{ fontFamily: 'var(--font-heading)' }}>Integrated Solutions</h3>
-                      <p className="text-gray-400 text-sm">End-to-end resource sector services</p>
+                      <div className="text-white font-semibold text-sm" data-testid="text-iso-certified">ISO Certified</div>
+                      <div className="text-gray-400 text-xs">Quality Assured</div>
                     </div>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
-                      <div className="text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>6+</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Countries</div>
+                  <div className="flex items-center gap-3" data-testid="trust-indicator-operations">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-accent" />
                     </div>
-                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
-                      <div className="text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>100+</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Projects</div>
+                    <div>
+                      <div className="text-white font-semibold text-sm" data-testid="text-operations">24/7 Operations</div>
+                      <div className="text-gray-400 text-xs">Always Available</div>
                     </div>
-                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
-                      <div className="text-3xl font-bold text-accent mb-1" style={{ fontFamily: 'var(--font-heading)' }}>2019</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Established</div>
+                  </div>
+                  <div className="flex items-center gap-3" data-testid="trust-indicator-esg">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                      <Leaf className="w-5 h-5 text-green-400" />
                     </div>
-                    <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
-                      <div className="text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>24/7</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Support</div>
+                    <div>
+                      <div className="text-white font-semibold text-sm" data-testid="text-esg-aligned">ESG Aligned</div>
+                      <div className="text-gray-400 text-xs">Sustainable Practices</div>
                     </div>
                   </div>
                 </motion.div>
+              </motion.div>
 
-                {/* Floating Badge - Top Right */}
-                <motion.div 
-                  className="absolute -top-4 -right-4 bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
-                  initial={{ scale: 0, rotate: -10 }}
-                  animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 1, duration: 0.5, type: "spring" }}
-                >
-                  Ghana-Based
-                </motion.div>
+              {/* Right Column - Stats Grid */}
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="lg:col-span-5 hidden lg:block"
+              >
+                <div className="relative">
+                  {/* Stats Card - Clean glassmorphism */}
+                  <div className="bg-white/[0.08] backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-2xl">
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-lg">
+                        <Factory className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-heading)' }}>
+                          Integrated Solutions
+                        </h3>
+                        <p className="text-gray-400 text-sm">Full-lifecycle resource services</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-6">
+                      <div className="text-center p-4 rounded-xl bg-white/5">
+                        <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>6+</div>
+                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Countries</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-white/5">
+                        <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>100+</div>
+                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Projects</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-white/5">
+                        <div className="text-4xl font-bold text-accent mb-1" style={{ fontFamily: 'var(--font-heading)' }}>2019</div>
+                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Established</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-white/5">
+                        <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>30%</div>
+                        <div className="text-xs text-gray-400 uppercase tracking-wider font-medium">Efficiency Gain</div>
+                      </div>
+                    </div>
 
-                {/* Service Pills - Bottom */}
-                <motion.div 
-                  className="absolute -bottom-6 left-4 right-4 flex flex-wrap gap-2 justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2, duration: 0.5 }}
-                >
-                  {['Mining', 'EPC', 'Technology', 'ESG'].map((service, i) => (
-                    <span 
-                      key={service}
-                      className="bg-white/10 backdrop-blur-sm border border-white/10 text-white/80 px-3 py-1.5 rounded-full text-xs font-medium"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </motion.div>
-              </div>
-            </motion.div>
+                    {/* Service Tags */}
+                    <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-white/10">
+                      {['Mining Operations', 'EPC', 'Technology', 'ESG'].map((service) => (
+                        <span 
+                          key={service}
+                          className="bg-white/5 border border-white/10 text-white/70 px-3 py-1.5 rounded-lg text-xs font-medium"
+                        >
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Floating accent element */}
+                  <div className="absolute -top-3 -right-3 bg-secondary text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-lg">
+                    Ghana-Based
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
 
         {/* Scroll Indicator */}
         <motion.div 
@@ -353,7 +359,6 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
         >
-          <span className="text-xs text-gray-400 uppercase tracking-widest">Scroll</span>
           <motion.div 
             className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-2"
             animate={{ y: [0, 5, 0] }}
