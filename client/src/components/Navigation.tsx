@@ -171,7 +171,7 @@ export function Navigation() {
                 
                 <div className="p-6 border-t border-gray-100 dark:border-border">
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-accent h-12" data-testid="button-mobile-get-quote">
+                    <Button size="lg" className="w-full bg-accent" data-testid="button-mobile-get-quote">
                       Get a Quote
                       <ChevronRight className="ml-1 w-4 h-4" />
                     </Button>

@@ -65,7 +65,7 @@ export function Footer() {
               <Button 
                 type="submit" 
                 size="lg"
-                className="bg-accent px-8" 
+                className="bg-accent" 
                 disabled={isSubscribing}
                 data-testid="button-newsletter-subscribe"
               >
