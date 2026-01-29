@@ -14,54 +14,41 @@ export default function Careers() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero */}
-      <div className="bg-gradient-to-br from-primary via-primary to-gray-900 py-28 text-center text-white relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
-        </div>
-        <div className="container-padding relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
-          >
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-white/90">Join Our Team</span>
-          </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Careers at MOS
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-xl mx-auto"
-          >
-            Build your career with West Africa's trusted technology partner
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Team Image Banner */}
-      <div className="relative h-[250px] md:h-[350px] overflow-hidden">
+      {/* Hero Cover Image */}
+      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <img 
           src={careersTeamImg} 
-          alt="MOS Engineering Team" 
+          alt="MOS Engineering Team - Join Our Team" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <div className="container-padding">
-            <p className="text-lg md:text-xl font-medium max-w-2xl">
-              Join a team of engineers and innovators shaping Africa's resource sector
-            </p>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container-padding text-center text-white relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-white/90">Join Our Team</span>
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Careers at MOS
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-gray-300 max-w-xl mx-auto"
+            >
+              Build your career with West Africa's trusted technology partner
+            </motion.p>
           </div>
         </div>
       </div>

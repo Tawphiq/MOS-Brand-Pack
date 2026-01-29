@@ -11,6 +11,7 @@ import serviceMiningTechImg from "@/assets/images/mining-tech-control.png";
 import serviceItImg from "@/assets/images/datacenter-futuristic.png";
 import serviceOilGasImg from "@/assets/images/oil-refinery-sunset.png";
 import serviceEsgImg from "@/assets/images/esg-rainforest.png";
+import servicesHeroImg from "@/assets/images/services-hero-banner.png";
 
 const services = [
   {
@@ -115,38 +116,42 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-primary via-primary to-gray-900 text-white py-28 text-center relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
-        </div>
-        <div className="container-padding relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
-          >
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-white/90">What We Do</span>
-          </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Our Services
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
-          >
-            Enterprise-grade technology solutions for mission-critical environments
-          </motion.p>
+      {/* Hero Cover Image */}
+      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <img 
+          src={servicesHeroImg} 
+          alt="MOS Engineering and Technology Services" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container-padding text-center text-white relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-white/90">What We Do</span>
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Our Services
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-gray-300 max-w-2xl mx-auto"
+            >
+              Enterprise-grade technology solutions for mission-critical environments
+            </motion.p>
+          </div>
         </div>
       </div>
 

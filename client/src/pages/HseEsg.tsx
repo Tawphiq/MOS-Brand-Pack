@@ -34,38 +34,42 @@ export default function HseEsg() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <div className="relative bg-gradient-to-br from-secondary via-secondary to-gray-900 py-28 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        </div>
-        <div className="container-padding relative z-10 text-center text-white">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
-          >
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-white/90">Security & Sustainability</span>
-          </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            HSE & ESG
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl max-w-3xl mx-auto text-gray-200"
-          >
-            Responsible operations that protect people, communities and the environment
-          </motion.p>
+      {/* Hero Cover Image */}
+      <div className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <img 
+          src={hseSafetyImg} 
+          alt="Environmental Sustainability - African Rainforest Conservation" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container-padding text-center text-white relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-white/90">Security & Sustainability</span>
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-extrabold mb-4 text-white" 
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              HSE & ESG
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl max-w-3xl mx-auto text-gray-200"
+            >
+              Responsible operations that protect people, communities and the environment
+            </motion.p>
+          </div>
         </div>
       </div>
 
