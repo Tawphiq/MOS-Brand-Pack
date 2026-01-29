@@ -91,7 +91,7 @@ export default function About() {
         </div>
       </div>
 
-      <section className="section-padding bg-white dark:bg-background">
+      <section className="section-padding bg-white">
         <div className="container-padding">
           <div className="max-w-5xl mx-auto">
             <motion.div 
@@ -105,7 +105,7 @@ export default function About() {
                 Corporate Overview
                 <span className="w-10 h-0.5 bg-accent rounded-full" />
               </span>
-              <h2 className="text-primary dark:text-foreground mb-8" style={{ fontFamily: 'var(--font-heading)' }}>
+              <h2 className="text-primary mb-8" style={{ fontFamily: 'var(--font-heading)' }}>
                 Who We Are
               </h2>
             </motion.div>
@@ -121,7 +121,7 @@ export default function About() {
                   Mining Optimization Solutions Ltd (MOS) is a Ghana-based engineering, mining, EPC, technology, and environmental services company providing full-lifecycle solutions to clients across the West African resource sector.
                 </p>
                 <p>
-                  Established in <span className="font-bold text-primary dark:text-foreground">2019</span> by a multidisciplinary team of experienced engineers with global practical backgrounds, MOS has evolved into a trusted partner for mining houses, oil & gas operators, EPC contractors, industrial firms, and government agencies.
+                  Established in <span className="font-bold text-primary">2019</span> by a multidisciplinary team of experienced engineers with global practical backgrounds, MOS has evolved into a trusted partner for mining houses, oil & gas operators, EPC contractors, industrial firms, and government agencies.
                 </p>
                 <p>
                   MOS delivers a unique blend of contract mining execution, EPC project delivery, mining technology integration, IT solutions, and environmental/ESG systems.
@@ -136,7 +136,7 @@ export default function About() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="p-4 bg-gradient-to-br from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 rounded-xl text-center border border-gray-100 dark:border-border"
+                    className="p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl text-center border border-gray-100"
                   >
                     <CheckCircle2 className="w-5 h-5 text-secondary mx-auto mb-2" />
                     <span className="text-sm font-medium text-foreground">{country}</span>
@@ -148,7 +148,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-card dark:to-background">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container-padding">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             <motion.div
@@ -199,7 +199,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section-padding bg-white dark:bg-background">
+      <section className="section-padding bg-white">
         <div className="container-padding">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -212,7 +212,7 @@ export default function About() {
               Our Values
               <span className="w-10 h-0.5 bg-accent rounded-full" />
             </span>
-            <h2 className="text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>What Drives Us</h2>
+            <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>What Drives Us</h2>
           </motion.div>
 
           <motion.div 
@@ -245,7 +245,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 bg-gray-50 dark:bg-card">
+      <section className="py-24 bg-gray-50">
         <div className="container-padding">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -258,7 +258,7 @@ export default function About() {
               Strategic Partners
               <span className="w-10 h-0.5 bg-accent rounded-full" />
             </span>
-            <h2 className="text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>Global Technology Partnerships</h2>
+            <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Global Technology Partnerships</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
               We partner with industry leaders to deliver enterprise-grade solutions
             </p>
@@ -292,7 +292,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section-padding bg-white dark:bg-background">
+      <section className="section-padding bg-white">
         <div className="container-padding">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -305,7 +305,7 @@ export default function About() {
               Our People
               <span className="w-10 h-0.5 bg-accent rounded-full" />
             </span>
-            <h2 className="text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>Management & Technical Leadership</h2>
+            <h2 className="text-primary" style={{ fontFamily: 'var(--font-heading)' }}>Management & Technical Leadership</h2>
           </motion.div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">

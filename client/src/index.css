@@ -104,68 +104,6 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
-.dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
-  --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
-
-  --background: 222 47% 8%;
-  --foreground: 210 40% 98%;
-
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --card-border: 217 33% 17%;
-
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
-  --popover-border: 217 33% 17%;
-
-  --primary: 213 73% 45%;
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 123 46% 40%;
-  --secondary-foreground: 0 0% 100%;
-
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 20% 65%;
-
-  --accent: 30 96% 55%;
-  --accent-foreground: 0 0% 100%;
-
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 0 0% 100%;
-
-  --border: 217 33% 17%;
-  --input: 217 33% 22%;
-  --ring: 213 73% 45%;
-
-  --chart-1: 213 73% 45%;
-  --chart-2: 123 46% 40%;
-  --chart-3: 30 96% 55%;
-  --chart-4: 215 20% 65%;
-  --chart-5: 0 72% 51%;
-
-  --sidebar: 222 47% 8%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-border: 217 33% 17%;
-  --sidebar-primary: 30 96% 55%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 217 33% 17%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-ring: 30 96% 55%;
-
-  --shadow-2xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
-  --shadow-xs: 0 1px 3px 0 rgb(0 0 0 / 0.3);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.5);
-}
-
 @layer base {
   * {
     @apply border-border;
@@ -223,11 +161,11 @@
   }
   
   .glass-effect {
-    @apply backdrop-blur-xl bg-white/80 dark:bg-gray-900/80;
+    @apply backdrop-blur-xl bg-white/80;
   }
   
   .premium-border {
-    @apply border border-gray-200/60 dark:border-gray-700/60;
+    @apply border border-gray-200/60;
   }
   
   .text-gradient {

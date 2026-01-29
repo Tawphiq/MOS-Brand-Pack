@@ -73,7 +73,7 @@ export function TestimonialsCarousel({ testIdPrefix = "testimonial" }: { testIdP
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="border-0 shadow-2xl bg-gradient-to-br from-white to-gray-50 dark:from-card dark:to-card/80">
+            <Card className="border-0 shadow-2xl bg-gradient-to-br from-white to-gray-50">
               <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center mb-8 shadow-lg">
@@ -117,7 +117,7 @@ export function TestimonialsCarousel({ testIdPrefix = "testimonial" }: { testIdP
               className={`w-2 h-2 rounded-full transition-all ${
                 i === current 
                   ? "w-8 bg-accent" 
-                  : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400"
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
               data-testid={`button-testimonial-dot-${i}`}
             />

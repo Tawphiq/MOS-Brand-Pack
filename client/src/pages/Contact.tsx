@@ -54,7 +54,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-card">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="relative h-[60vh] min-h-[500px] overflow-hidden -mt-20 pt-20">
         <motion.img 
           initial={{ scale: 1.1 }}
@@ -118,7 +118,7 @@ export default function Contact() {
                   {info.link ? (
                     <a 
                       href={info.link} 
-                      className="text-muted-foreground hover:text-primary dark:hover:text-foreground transition-colors whitespace-pre-line"
+                      className="text-muted-foreground hover:text-primary transition-colors whitespace-pre-line"
                       data-testid={`link-contact-${info.title.toLowerCase().replace(' ', '-')}`}
                     >
                       {info.value}
@@ -142,7 +142,7 @@ export default function Contact() {
               <span className="w-10 h-0.5 bg-accent rounded-full" />
               Send a Message
             </span>
-            <h2 className="text-primary dark:text-foreground mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-primary mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
               We'd Love to Hear From You
             </h2>
             <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
@@ -150,8 +150,8 @@ export default function Contact() {
             </p>
 
             <Card className="shadow-2xl border-0 overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 pb-6 pt-8 px-8">
-                <CardTitle className="text-xl text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
+              <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5 pb-6 pt-8 px-8">
+                <CardTitle className="text-xl text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
                   Send Us a Message
                 </CardTitle>
                 <p className="text-sm text-muted-foreground mt-1">We'll get back to you within 24 hours</p>
@@ -245,7 +245,7 @@ export default function Contact() {
               <span className="w-10 h-0.5 bg-accent rounded-full" />
               Our Location
             </span>
-            <h2 className="text-primary dark:text-foreground mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-primary mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
               Visit Our Office
             </h2>
             <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
@@ -253,7 +253,7 @@ export default function Contact() {
             </p>
 
             <Card className="shadow-2xl border-0 overflow-hidden mb-8">
-              <div className="h-[300px] bg-gray-200 dark:bg-border relative">
+              <div className="h-[300px] bg-gray-200 relative">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15881.23507850798!2d-0.22!3d5.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzknMDAuMCJOIDDCsDEzJzEyLjAiVw!5e0!3m2!1sen!2sgh!4v1234567890"
                   width="100%"
@@ -267,8 +267,8 @@ export default function Contact() {
               </div>
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-primary dark:text-foreground" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-bold text-foreground mb-1" style={{ fontFamily: 'var(--font-heading)' }}>MOS Headquarters</h3>
@@ -281,7 +281,7 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 dark:from-primary/10 dark:via-accent/10 dark:to-secondary/10 rounded-2xl p-8 border border-primary/10 dark:border-border">
+            <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 rounded-2xl p-8 border border-primary/10">
               <h3 className="font-bold text-foreground mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Prefer a Different Channel?</h3>
               <p className="text-muted-foreground mb-6">
                 You can also reach us directly via email or phone:
@@ -289,7 +289,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <a 
                   href="mailto:info@miningopts.com" 
-                  className="flex items-center gap-3 text-primary dark:text-foreground hover:text-accent transition-colors"
+                  className="flex items-center gap-3 text-primary hover:text-accent transition-colors"
                   data-testid="link-contact-alt-email"
                 >
                   <Mail className="w-5 h-5" />
@@ -297,7 +297,7 @@ export default function Contact() {
                 </a>
                 <a 
                   href="tel:+233599738900" 
-                  className="flex items-center gap-3 text-primary dark:text-foreground hover:text-accent transition-colors"
+                  className="flex items-center gap-3 text-primary hover:text-accent transition-colors"
                   data-testid="link-contact-alt-phone"
                 >
                   <Phone className="w-5 h-5" />

@@ -115,7 +115,7 @@ export default function Services() {
   const [activeService, setActiveService] = useState(services[0]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-card">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="relative h-[60vh] min-h-[500px] overflow-hidden -mt-20 pt-20">
         <motion.img 
           initial={{ scale: 1.1 }}
@@ -163,7 +163,7 @@ export default function Services() {
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white dark:bg-card rounded-3xl shadow-2xl overflow-hidden sticky top-28 border border-gray-100 dark:border-border"
+              className="bg-white rounded-3xl shadow-2xl overflow-hidden sticky top-28 border border-gray-100"
             >
               <div className="p-8 bg-gradient-to-r from-primary to-primary/90 text-white">
                 <h3 className="font-bold text-xl" style={{ fontFamily: 'var(--font-heading)' }}>Our Solutions</h3>
@@ -179,8 +179,8 @@ export default function Services() {
                     transition={{ delay: i * 0.05 }}
                     className={`w-full flex items-center justify-between p-4 rounded-xl text-left transition-all mb-1 ${
                       activeService.id === service.id 
-                        ? "bg-primary/5 dark:bg-primary/10 border-l-4 border-accent" 
-                        : "hover:bg-gray-50 dark:hover:bg-border/50 border-l-4 border-transparent"
+                        ? "bg-primary/5 border-l-4 border-accent" 
+                        : "hover:bg-gray-50 border-l-4 border-transparent"
                     }`}
                     data-testid={`button-service-${service.id}`}
                   >
@@ -189,13 +189,13 @@ export default function Services() {
                         className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
                           activeService.id === service.id 
                             ? `bg-gradient-to-br ${service.gradient} text-white shadow-lg` 
-                            : "bg-gray-100 dark:bg-border text-gray-500 dark:text-muted-foreground"
+                            : "bg-gray-100 text-gray-500"
                         }`}
                         whileHover={{ scale: 1.05 }}
                       >
                         {service.icon}
                       </motion.div>
-                      <span className={`font-medium text-sm ${activeService.id === service.id ? "text-primary dark:text-foreground" : "text-gray-700 dark:text-muted-foreground"}`}>
+                      <span className={`font-medium text-sm ${activeService.id === service.id ? "text-primary" : "text-gray-700"}`}>
                         {service.title}
                       </span>
                     </div>
@@ -258,7 +258,7 @@ export default function Services() {
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
-                          className="flex items-start gap-4 p-5 bg-gray-50 dark:bg-border/30 rounded-xl border border-gray-100 dark:border-border"
+                          className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100"
                         >
                           <div className="w-7 h-7 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <CheckCircle2 className="w-4 h-4 text-secondary" />
@@ -268,10 +268,10 @@ export default function Services() {
                       ))}
                     </div>
 
-                    <div className="p-8 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 dark:from-primary/10 dark:via-accent/10 dark:to-secondary/10 rounded-2xl border border-primary/10 dark:border-border">
+                    <div className="p-8 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 rounded-2xl border border-primary/10">
                       <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div>
-                          <h4 className="font-bold text-primary dark:text-foreground text-xl mb-2" style={{ fontFamily: 'var(--font-heading)' }}>Interested in this service?</h4>
+                          <h4 className="font-bold text-primary text-xl mb-2" style={{ fontFamily: 'var(--font-heading)' }}>Interested in this service?</h4>
                           <p className="text-muted-foreground">Contact our team for a detailed consultation.</p>
                         </div>
                         <Link href="/contact">

@@ -11,7 +11,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
-import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
@@ -54,7 +53,6 @@ function AnimatedRoutes() {
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
-          <Route path="/careers" component={Careers} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>

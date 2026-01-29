@@ -126,7 +126,6 @@ export function Footer() {
               {[
                 { label: "About Us", href: "/about", testId: "link-footer-about" },
                 { label: "Our Services", href: "/services", testId: "link-footer-services" },
-                { label: "Careers", href: "/careers", testId: "link-footer-careers" },
                 { label: "Contact", href: "/contact", testId: "link-footer-contact" },
               ].map((link) => (
                 <li key={link.href}>

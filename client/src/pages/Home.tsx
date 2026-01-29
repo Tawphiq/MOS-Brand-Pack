@@ -268,8 +268,8 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white dark:bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-card" />
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" />
         <div className="container-padding relative">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, i) => (
@@ -281,7 +281,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center group"
               >
-                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary dark:text-primary mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-muted-foreground font-medium">{stat.label}</div>
@@ -292,7 +292,7 @@ export default function Home() {
       </section>
 
       {/* Partners Marquee */}
-      <section className="py-10 bg-white dark:bg-background border-y border-gray-100 dark:border-border">
+      <section className="py-10 bg-white border-y border-gray-100">
         <div className="text-center mb-6">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.25em]">Trusted by Industry Leaders</p>
         </div>
@@ -300,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="section-padding bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-card relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/[0.03] to-transparent pointer-events-none" />
         
         <div className="container-padding relative">
@@ -315,7 +315,7 @@ export default function Home() {
                   <span className="w-10 h-0.5 bg-accent rounded-full" />
                   About MOS
                 </span>
-                <h2 className="text-primary dark:text-foreground mb-8 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
+                <h2 className="text-primary mb-8 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
                   Your Trusted Partner in West Africa
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
@@ -339,8 +339,8 @@ export default function Home() {
                   { icon: <Shield className="w-5 h-5" />, text: "Sustainability" },
                   { icon: <Award className="w-5 h-5" />, text: "Integrity" }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 p-4 bg-white dark:bg-card rounded-xl shadow-sm border border-gray-100 dark:border-border group hover:shadow-md transition-all">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 dark:from-primary/20 dark:to-accent/20 flex items-center justify-center text-primary dark:text-primary">
+                  <div key={i} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100 group hover:shadow-md transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-primary">
                       {item.icon}
                     </div>
                     <span className="font-semibold text-foreground">{item.text}</span>
@@ -349,7 +349,7 @@ export default function Home() {
               </motion.div>
               
               <Link href="/about">
-                <Button className="bg-primary dark:bg-primary" data-testid="button-learn-more">
+                <Button className="bg-primary" data-testid="button-learn-more">
                   Learn More About Us
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -396,7 +396,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="section-padding bg-white dark:bg-background relative overflow-hidden">
+      <section className="section-padding bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(11,37,69,0.04),transparent_50%)]" />
         
         <div className="container-padding relative">
@@ -411,7 +411,7 @@ export default function Home() {
                 Our Solutions
                 <span className="w-10 h-0.5 bg-accent rounded-full" />
               </span>
-              <h2 className="text-primary dark:text-foreground mb-6 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
+              <h2 className="text-primary mb-6 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
                 Comprehensive Technology Services
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
@@ -429,7 +429,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white dark:bg-card group hover:-translate-y-2 overflow-hidden" data-testid={`card-service-${i}`}>
+                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white group hover:-translate-y-2 overflow-hidden" data-testid={`card-service-${i}`}>
                   <div className="relative h-52 overflow-hidden">
                     <img 
                       src={service.image} 
@@ -457,7 +457,7 @@ export default function Home() {
             className="text-center mt-16"
           >
             <Link href="/services">
-              <Button variant="outline" className="border-primary text-primary dark:border-primary dark:text-primary" data-testid="button-view-services">
+              <Button variant="outline" className="border-primary text-primary" data-testid="button-view-services">
                 View All Services
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -467,7 +467,7 @@ export default function Home() {
       </section>
 
       {/* Markets Section */}
-      <section className="py-24 bg-gray-50 dark:bg-card">
+      <section className="py-24 bg-gray-50">
         <div className="container-padding">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
@@ -475,7 +475,7 @@ export default function Home() {
               Market Focus
               <span className="w-10 h-0.5 bg-accent rounded-full" />
             </span>
-            <h2 className="text-primary dark:text-foreground text-3xl md:text-4xl mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-primary text-3xl md:text-4xl mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               Industries We Serve
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -518,7 +518,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section-padding bg-white dark:bg-background">
+      <section className="section-padding bg-white">
         <div className="container-padding">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
@@ -526,7 +526,7 @@ export default function Home() {
               Testimonials
               <span className="w-10 h-0.5 bg-accent rounded-full" />
             </span>
-            <h2 className="text-primary dark:text-foreground text-3xl md:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-primary text-3xl md:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
               What Our Clients Say
             </h2>
           </div>
@@ -578,7 +578,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-white dark:bg-background relative overflow-hidden">
+      <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(245,124,0,0.1),transparent_50%)]" />
         
         <div className="container-padding text-center relative">
@@ -587,7 +587,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-primary dark:text-foreground mb-8 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h2 className="text-primary mb-8 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
               Ready to Transform Your Operations?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-12 text-lg leading-relaxed">

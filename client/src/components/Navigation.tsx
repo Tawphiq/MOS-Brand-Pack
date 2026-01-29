@@ -4,15 +4,12 @@ import { Menu, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ThemeToggle } from "@/components/ThemeToggle";
-
 import logoImg from "@assets/images/logo.png";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -104,7 +101,6 @@ export function Navigation() {
           ))}
           
           <div className="flex items-center gap-2 ml-4">
-            <ThemeToggle />
             <Link href="/contact">
               <Button 
                 className="bg-accent text-white font-semibold px-6" 
@@ -118,7 +114,6 @@ export function Navigation() {
         </nav>
 
         <div className="lg:hidden flex items-center gap-2">
-          <ThemeToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
@@ -131,13 +126,13 @@ export function Navigation() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] sm:w-[380px] bg-white dark:bg-card p-0">
+            <SheetContent side="right" className="w-[320px] sm:w-[380px] bg-white p-0">
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-border">
+                <div className="flex items-center justify-between p-6 border-b border-gray-100">
                   <div className="flex items-center gap-3">
                     <img src={logoImg} alt="MOS Logo" className="h-10 w-auto" />
                     <div className="flex flex-col leading-none">
-                      <span className="font-bold text-primary dark:text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
+                      <span className="font-bold text-primary" style={{ fontFamily: 'var(--font-heading)' }}>MINING OPTS</span>
                       <span className="text-[9px] text-muted-foreground tracking-widest">SOLUTIONS LTD</span>
                     </div>
                   </div>
@@ -155,20 +150,20 @@ export function Navigation() {
                         href={item.href}
                         className={`flex items-center justify-between p-4 rounded-xl text-base font-medium transition-all ${
                           location === item.href 
-                            ? "text-primary dark:text-foreground bg-primary/5 dark:bg-foreground/5 border-l-4 border-accent" 
-                            : "text-foreground hover:bg-gray-50 dark:hover:bg-border/50"
+                            ? "text-primary bg-primary/5 border-l-4 border-accent" 
+                            : "text-foreground hover:bg-gray-50"
                         }`}
                         onClick={() => setIsOpen(false)}
                         data-testid={`nav-mobile-${item.href.replace('/', '') || 'home'}`}
                       >
                         {item.label}
-                        <ChevronRight className={`w-4 h-4 ${location === item.href ? "text-accent" : "text-gray-300 dark:text-muted-foreground"}`} />
+                        <ChevronRight className={`w-4 h-4 ${location === item.href ? "text-accent" : "text-gray-300"}`} />
                       </Link>
                     </motion.div>
                   ))}
                 </nav>
                 
-                <div className="p-6 border-t border-gray-100 dark:border-border">
+                <div className="p-6 border-t border-gray-100">
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     <Button size="lg" className="w-full bg-accent" data-testid="button-mobile-get-quote">
                       Get a Quote
