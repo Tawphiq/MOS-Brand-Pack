@@ -46,16 +46,7 @@ export function Navigation() {
     >
       <div className="container-padding flex h-20 sm:h-24 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3 group" data-testid="link-logo">
-          <motion.div 
-            className="relative"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative p-2 rounded-xl">
-              <img src={logoImg} alt="MOS Logo" className="relative h-12 w-auto sm:h-14 md:h-16" />
-            </div>
-          </motion.div>
+          <img src={logoImg} alt="MOS Logo" className="h-12 w-auto sm:h-14 md:h-16" />
           <div className="hidden sm:flex flex-col leading-none gap-0.5">
             <span 
               className="tracking-tight text-lg sm:text-xl font-bold text-white transition-colors" 
