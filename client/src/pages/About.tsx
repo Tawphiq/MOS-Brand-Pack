@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 import partnerRamjack from "@/assets/images/partner-ramjack.png";
-import partnerWestcon from "@/assets/images/partner-westcon.png";
+import partnerWestcon from "@/assets/images/westcon-comstor.svg";
 import partnerCrowdstrike from "@/assets/images/partner-crowdstrike.png";
 import team1 from "@/assets/images/team1.jpg";
 import team2 from "@/assets/images/team2.jpg";
@@ -266,7 +266,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
-              { img: partnerRamjack, alt: "Ramjack Technology Solutions", name: "Ramjack Technology", desc: "Systems integration and enterprise technology implementation" },
+              { img: partnerRamjack, alt: "Ramjack Technology Solutions", name: "Ramjack Technology Solutions", desc: "Systems integration and enterprise technology implementation" },
               { img: partnerWestcon, alt: "Westcon-Comstor", name: "Westcon-Comstor", desc: "Global technology distribution across 70+ countries" },
               { img: partnerCrowdstrike, alt: "CrowdStrike", name: "CrowdStrike", desc: "Advanced cloud-native cybersecurity platform" }
             ].map((partner, i) => (
@@ -280,7 +280,11 @@ export default function About() {
                 <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
                   <CardContent className="p-10 text-center">
                     <div className="h-24 flex items-center justify-center mb-6">
-                      <img src={partner.img} alt={partner.alt} className="max-h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+                      <img
+                        src={partner.img}
+                        alt={partner.alt}
+                        className="max-h-20 object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
                     <h4 className="font-bold text-lg text-foreground mb-2" style={{ fontFamily: 'var(--font-heading)' }}>{partner.name}</h4>
                     <p className="text-sm text-muted-foreground">{partner.desc}</p>
