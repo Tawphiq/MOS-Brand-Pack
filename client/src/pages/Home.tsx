@@ -23,7 +23,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
-import heroImg from "@assets/pexels-enrique72-15071423_1769658600887.jpg";
+import heroImg from "@assets/hero-background-mining-truck.png";
 import dataCenterImg from "@/assets/images/datacenter-futuristic.png";
 import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
 
