@@ -23,7 +23,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
-import heroImg from "@/assets/images/hero-mining-dramatic.png";
+import heroImg from "@assets/pexels-enrique72-15071423_1769658600887.jpg";
 import dataCenterImg from "@/assets/images/datacenter-futuristic.png";
 import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
 
@@ -164,50 +164,56 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroImg})` }}
           />
-          {/* Dark wash overlay - lighter to show more of the background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 via-gray-900/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-gray-900/20" />
+          {/* Dark wash overlay - ensures text readability on bright image */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-gray-900/40 to-gray-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/50 via-transparent to-gray-900/30" />
         </motion.div>
-        
-        {/* Subtle geometric pattern overlay */}
-        <div className="absolute inset-0 z-[1] opacity-[0.02]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
 
-        {/* Main Content - Simplified and centered */}
-        <div className="container-padding relative z-20 pt-32 pb-28">
+        {/* Main Content - Centered with enhanced styling */}
+        <div className="container-padding relative z-20 pt-40 pb-32">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div 
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
-              {/* Main Headline - Clean, impactful typography */}
+              {/* Tagline */}
+              <motion.div
+                variants={itemVariants}
+                className="mb-6"
+              >
+                <span className="inline-block text-accent font-semibold text-sm md:text-base tracking-wider uppercase">
+                  West Africa's Premier Resource Partner
+                </span>
+              </motion.div>
+
+              {/* Main Headline - Enhanced with text shadow for readability */}
               <motion.h1 
                 variants={itemVariants}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-white"
-                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.025em' }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-white drop-shadow-lg"
+                style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.025em', textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}
                 data-testid="heading-hero"
               >
                 Powering Africa's
                 <br />
                 <span className="relative">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-orange-400 to-amber-400 drop-shadow-lg">
                     Resource Future
                   </span>
                 </span>
               </motion.h1>
               
-              {/* Description - Concise */}
+              {/* Description - Enhanced readability */}
               <motion.p 
                 variants={itemVariants}
-                className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed"
+                className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
+                style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
               >
                 End-to-end engineering, mining operations, and environmental solutions. 
                 Trusted by industry leaders across Ghana and West Africa.
               </motion.p>
               
-              {/* CTA Buttons - Clean, professional styling */}
+              {/* CTA Buttons - Enhanced styling */}
               <motion.div 
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -215,7 +221,7 @@ export default function Home() {
                 <Link href="/services">
                   <Button 
                     size="lg" 
-                    className="bg-accent text-white font-semibold group shadow-xl shadow-accent/25" 
+                    className="bg-accent text-white font-semibold group shadow-2xl shadow-accent/30 px-8" 
                     data-testid="button-explore-services"
                   >
                     Explore Our Services
@@ -226,7 +232,7 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-white/30 text-white backdrop-blur-sm bg-white/5" 
+                    className="border-white/40 text-white backdrop-blur-md bg-white/10 px-8" 
                     data-testid="button-contact-hero"
                   >
                     Request a Quote
