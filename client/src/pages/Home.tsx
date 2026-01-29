@@ -23,7 +23,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
-import heroImg from "@assets/hero-background-mining-truck.png";
+import heroImg from "@/assets/images/hero-bg-mining.png";
 import dataCenterImg from "@/assets/images/datacenter-futuristic.png";
 import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
 
@@ -145,12 +145,45 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      {/* Hero Section - Clean Minimal Design */}
+      {/* Hero Section - Clean Minimal Design with Background */}
       <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden -mt-20 sm:-mt-24">
-        {/* Background with subtle gradient */}
-        <div className="absolute inset-0 z-0 bg-primary">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-gray-900" />
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        {/* Background Image with Ken Burns effect */}
+        <motion.div 
+          className="absolute inset-0 z-0"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroImg})` }}
+          />
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
+        </motion.div>
+
+        {/* Floating particles effect */}
+        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-accent/30 rounded-full"
+              style={{
+                left: `${15 + i * 15}%`,
+                top: `${20 + (i % 3) * 25}%`,
+              }}
+              animate={{
+                y: [-20, 20, -20],
+                opacity: [0.2, 0.5, 0.2],
+              }}
+              transition={{
+                duration: 4 + i,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.5,
+              }}
+            />
+          ))}
         </div>
 
         {/* Main Content */}
@@ -169,13 +202,19 @@ export default function Home() {
               data-testid="heading-hero"
             >
               Powering Africa's{" "}
-              <span className="text-accent">Resource Future</span>
+              <motion.span 
+                className="text-accent inline-block"
+                animate={{ opacity: [0.9, 1, 0.9] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                Resource Future
+              </motion.span>
             </motion.h1>
             
             {/* Description */}
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-10"
+              className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed mb-10"
             >
               Engineering, mining, and environmental solutions across West Africa.
             </motion.p>
@@ -209,7 +248,7 @@ export default function Home() {
         </div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/50 to-transparent z-10" />
       </section>
 
       {/* Stats Section */}
