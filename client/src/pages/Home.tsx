@@ -192,7 +192,7 @@ export default function Home() {
               <Link href="/services">
                 <Button 
                   size="lg" 
-                  className="bg-accent border-accent-border text-white font-semibold px-7"
+                  className="bg-accent border-accent-border text-white font-semibold"
                   data-testid="button-explore-services"
                 >
                   Our Services
@@ -203,12 +203,13 @@ export default function Home() {
                 href="https://wa.me/233244734616" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                data-testid="link-whatsapp-hero"
               >
                 <Button 
                   size="lg" 
                   variant="ghost"
-                  className="text-white font-semibold px-7"
-                  data-testid="button-contact-hero"
+                  className="text-white font-semibold"
+                  data-testid="button-whatsapp-hero"
                 >
                   Chat with Us
                 </Button>
@@ -219,10 +220,11 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" />
+      <section className="py-24 bg-gradient-to-b from-primary to-primary/95 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(245,124,0,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(22,163,74,0.1),transparent_50%)]" />
         <div className="container-padding relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -230,12 +232,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center group"
+                className="text-center p-6 md:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
+                <div className="text-white/70 font-medium text-sm md:text-base">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -243,11 +245,19 @@ export default function Home() {
       </section>
 
       {/* Partners Marquee */}
-      <section className="py-10 bg-white border-y border-gray-100">
-        <div className="text-center mb-6">
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.25em]">Trusted by Industry Leaders</p>
+      <section className="py-16 bg-gray-50/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white pointer-events-none z-10" />
+        <div className="container-padding text-center mb-10">
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs font-semibold text-muted-foreground uppercase tracking-[0.25em]"
+          >
+            Trusted by Industry Leaders
+          </motion.p>
         </div>
-        <LogoMarquee logos={logos} speed={20} />
+        <LogoMarquee logos={logos} speed={25} />
       </section>
 
       {/* About Section */}
@@ -347,11 +357,12 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(11,37,69,0.04),transparent_50%)]" />
+      <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(11,37,69,0.06),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(245,124,0,0.04),transparent_50%)]" />
         
         <div className="container-padding relative">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -371,30 +382,30 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white group hover:-translate-y-2 overflow-hidden" data-testid={`card-service-${i}`}>
-                  <div className="relative h-52 overflow-hidden">
+                <Card className="h-full border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 bg-white group hover:-translate-y-1 overflow-hidden" data-testid={`card-service-${i}`}>
+                  <div className="relative h-48 overflow-hidden">
                     <img 
                       src={service.image} 
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                    <div className={`absolute bottom-5 left-5 bg-gradient-to-br ${service.gradient} w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-transform`}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    <div className={`absolute bottom-4 left-4 bg-gradient-to-br ${service.gradient} w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform`}>
                       {service.icon}
                     </div>
                   </div>
-                  <CardContent className="p-7">
-                    <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold mb-3 text-foreground group-hover:text-primary transition-colors" style={{ fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{service.desc}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -405,10 +416,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-16"
+            className="text-center mt-14"
           >
             <Link href="/services">
-              <Button variant="outline" className="border-primary text-primary" data-testid="button-view-services">
+              <Button className="bg-primary" data-testid="button-view-services">
                 View All Services
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -418,45 +429,52 @@ export default function Home() {
       </section>
 
       {/* Markets Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container-padding">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
-              <span className="w-10 h-0.5 bg-accent rounded-full" />
-              Market Focus
-              <span className="w-10 h-0.5 bg-accent rounded-full" />
-            </span>
-            <h2 className="text-primary text-3xl md:text-4xl mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-              Industries We Serve
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Delivering specialized solutions across key sectors in West Africa's growing economy
-            </p>
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(11,37,69,0.03),transparent_50%)]" />
+        <div className="container-padding relative">
+          <div className="text-center mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
+                <span className="w-10 h-0.5 bg-accent rounded-full" />
+                Market Focus
+                <span className="w-10 h-0.5 bg-accent rounded-full" />
+              </span>
+              <h2 className="text-primary text-3xl md:text-4xl mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+                Industries We Serve
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Delivering specialized solutions across key sectors in West Africa's growing economy
+              </p>
+            </motion.div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {markets.map((market, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
                 className="group"
               >
-                <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-1" data-testid={`card-market-${i}`}>
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1" data-testid={`card-market-${i}`}>
                   <img 
                     src={market.image} 
                     alt={market.name}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-gray-900/20" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-primary/20" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
+                    <div className="flex items-center gap-2 md:gap-3">
+                      <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white shrink-0">
                         {market.icon}
                       </div>
-                      <h3 className="text-lg font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <h3 className="text-sm md:text-base font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                         {market.name}
                       </h3>
                     </div>
@@ -469,17 +487,24 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section-padding bg-white">
-        <div className="container-padding">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
-              <span className="w-10 h-0.5 bg-accent rounded-full" />
-              Testimonials
-              <span className="w-10 h-0.5 bg-accent rounded-full" />
-            </span>
-            <h2 className="text-primary text-3xl md:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              What Our Clients Say
-            </h2>
+      <section className="section-padding bg-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,rgba(245,124,0,0.05),transparent_40%)]" />
+        <div className="container-padding relative">
+          <div className="text-center mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
+                <span className="w-10 h-0.5 bg-accent rounded-full" />
+                Testimonials
+                <span className="w-10 h-0.5 bg-accent rounded-full" />
+              </span>
+              <h2 className="text-primary text-3xl md:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+                What Our Clients Say
+              </h2>
+            </motion.div>
           </div>
           <TestimonialsCarousel />
         </div>
@@ -529,31 +554,55 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(245,124,0,0.1),transparent_50%)]" />
+      <section className="py-24 md:py-32 bg-gradient-to-br from-accent/5 via-white to-primary/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,124,0,0.08),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(11,37,69,0.06),transparent_40%)]" />
         
         <div className="container-padding text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
           >
-            <h2 className="text-primary mb-8 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
+            <span className="inline-flex items-center gap-2 text-accent font-semibold tracking-wider uppercase text-xs mb-6">
+              <span className="w-10 h-0.5 bg-accent rounded-full" />
+              Get Started
+              <span className="w-10 h-0.5 bg-accent rounded-full" />
+            </span>
+            <h2 className="text-primary mb-6 text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
               Ready to Transform Your Operations?
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
               Partner with MOS for enterprise-grade technology solutions that drive efficiency, security, and sustainable growth across West Africa.
             </p>
-            <Link href="/contact">
-              <Button 
-                size="lg" 
-                className="bg-accent text-white font-semibold group" 
-                data-testid="button-contact-cta"
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/contact">
+                <Button 
+                  size="lg" 
+                  className="bg-primary text-white font-semibold" 
+                  data-testid="button-contact-cta"
+                >
+                  Start Your Project
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <a 
+                href="https://wa.me/233244734616" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                data-testid="link-whatsapp-cta"
               >
-                Start Your Project
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-primary text-primary font-semibold"
+                  data-testid="button-whatsapp-cta"
+                >
+                  Chat on WhatsApp
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
