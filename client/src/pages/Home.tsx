@@ -23,7 +23,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
-import heroImg from "@/assets/images/hero-mining-dramatic.png";
+import heroVideo from "@/assets/videos/hero-mining.mp4";
 import dataCenterImg from "@/assets/images/datacenter-futuristic.png";
 import cybersecurityImg from "@/assets/images/cybersecurity-ops-center.png";
 
@@ -147,15 +147,17 @@ export default function Home() {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Hero Section — starts at viewport top; background extends behind navbar for seamless blend */}
       <section className="relative min-h-[100svh] flex items-end overflow-hidden">
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <motion.div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImg})` }}
-            initial={{ scale: 1.05 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
           {/* Gradient overlay — no overlay at top so hero blends with transparent nav */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 top-[40%] bg-gradient-to-r from-gray-950/60 via-transparent to-transparent pointer-events-none" />
